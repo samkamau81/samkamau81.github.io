@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Samwel Waweru | AI Engineer & Martial Artist</title>
+    <title>Samwel Waweru - Portfolio</title>
     <style>
         * {
             margin: 0;
@@ -12,336 +12,680 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d1810 100%);
-            color: #f0f0f0;
-            overflow-x: hidden;
+            font-family: 'Tahoma', 'MS Sans Serif', sans-serif;
+            background: #5a8cc4;
+            overflow: hidden;
+            height: 100vh;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        header {
-            text-align: center;
-            padding: 60px 20px;
-            background: rgba(0, 0, 0, 0.3);
-            border-bottom: 3px solid #c41e3a;
+        .desktop {
+            height: calc(100vh - 30px);
+            padding: 10px;
             position: relative;
+            overflow: auto;
         }
 
-        h1 {
-            font-size: 3.5em;
-            color: #fff;
-            text-shadow: 0 0 20px rgba(196, 30, 58, 0.8);
-            margin-bottom: 10px;
+        .icon {
+            width: 80px;
+            text-align: center;
+            margin: 10px;
+            cursor: pointer;
+            user-select: none;
+            float: left;
+        }
+
+        .icon-image {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+            margin: 0 auto 5px;
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .icon-label {
+            color: white;
+            font-size: 11px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+            padding: 2px 4px;
+        }
+
+        .icon.selected .icon-label {
+            background: #0b51a5;
+            outline: 1px dotted white;
+        }
+
+        .window {
+            position: absolute;
+            background: #ece9d8;
+            border: 2px solid;
+            border-color: #0054e3 #0054e3 #0054e3 #0054e3;
+            box-shadow: 3px 3px 8px rgba(0,0,0,0.3);
+            min-width: 400px;
+            min-height: 300px;
+            display: none;
+        }
+
+        .window.active {
+            display: block;
+        }
+
+        .title-bar {
+            background: linear-gradient(to right, #0a58ca 0%, #4096ee 100%);
+            padding: 3px 5px;
+            color: white;
+            font-weight: bold;
+            font-size: 11px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: move;
+        }
+
+        .title-bar-text {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .title-bar-controls button {
+            width: 21px;
+            height: 21px;
+            border: 1px solid;
+            border-color: white #003c74 #003c74 white;
+            background: #d4d0c8;
+            font-size: 10px;
+            margin-left: 2px;
+            cursor: pointer;
             font-weight: bold;
         }
 
-        .subtitle {
-            font-size: 1.5em;
-            color: #c41e3a;
-            margin-bottom: 20px;
+        .title-bar-controls button:active {
+            border-color: #003c74 white white #003c74;
         }
 
-        .contact-info {
+        .window-content {
+            padding: 10px;
+            height: calc(100% - 27px);
+            overflow-y: auto;
+            background: white;
+        }
+
+        .taskbar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 30px;
+            background: linear-gradient(to bottom, #245edb 0%, #1941a5 50%, #1941a5 50%, #1941a5 100%);
+            border-top: 1px solid #1659e7;
             display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-            margin-top: 20px;
+            align-items: center;
+            padding: 2px;
+            box-shadow: 0 -1px 3px rgba(0,0,0,0.2);
         }
 
-        .contact-info a {
-            color: #fff;
-            text-decoration: none;
-            transition: color 0.3s;
+        .start-button {
+            background: linear-gradient(to bottom, #4caf50 0%, #388e3c 100%);
+            border: 1px solid;
+            border-color: #81c784 #2e7d32 #2e7d32 #81c784;
+            color: white;
+            font-weight: bold;
+            padding: 3px 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 11px;
+            height: 26px;
+            border-radius: 3px;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.3);
         }
 
-        .contact-info a:hover {
-            color: #c41e3a;
+        .start-button:active {
+            background: linear-gradient(to bottom, #388e3c 0%, #4caf50 100%);
+            border-color: #2e7d32 #81c784 #81c784 #2e7d32;
         }
 
-        section {
-            margin: 40px 0;
-            padding: 30px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
-            border-left: 4px solid #c41e3a;
-            backdrop-filter: blur(10px);
+        .start-logo {
+            font-size: 16px;
+        }
+
+        .taskbar-items {
+            display: flex;
+            gap: 3px;
+            margin-left: 5px;
+            flex: 1;
+        }
+
+        .taskbar-item {
+            background: linear-gradient(to bottom, #3b82f6 0%, #1e40af 100%);
+            border: 1px solid;
+            border-color: #60a5fa #1e3a8a #1e3a8a #60a5fa;
+            color: white;
+            padding: 3px 8px;
+            font-size: 11px;
+            cursor: pointer;
+            max-width: 150px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .taskbar-item.active {
+            background: linear-gradient(to bottom, #1e40af 0%, #3b82f6 100%);
+            border-color: #1e3a8a #60a5fa #60a5fa #1e3a8a;
+        }
+
+        .system-tray {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            padding: 0 8px;
+            background: #0c6cb8;
+            height: 22px;
+            border: 1px inset #084a87;
+            margin-left: auto;
+        }
+
+        .clock {
+            color: white;
+            font-size: 11px;
+        }
+
+        .start-menu {
+            position: fixed;
+            bottom: 30px;
+            left: 0;
+            width: 350px;
+            background: #d4d0c8;
+            border: 2px solid;
+            border-color: #ffffff #000000 #000000 #ffffff;
+            display: none;
+            box-shadow: 3px 3px 8px rgba(0,0,0,0.3);
+        }
+
+        .start-menu.active {
+            display: block;
+        }
+
+        .start-menu-header {
+            background: linear-gradient(to bottom, #245edb 0%, #1941a5 100%);
+            color: white;
+            padding: 30px 10px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .start-menu-items {
+            padding: 5px 0;
+        }
+
+        .start-menu-item {
+            padding: 8px 40px 8px 50px;
+            cursor: pointer;
+            font-size: 11px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .start-menu-item:hover {
+            background: #0a58ca;
+            color: white;
+        }
+
+        .start-menu-item::before {
+            content: '📁';
+            position: absolute;
+            left: 20px;
+            font-size: 20px;
         }
 
         h2 {
-            color: #c41e3a;
-            font-size: 2em;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #c41e3a;
-            padding-bottom: 10px;
+            color: #0054e3;
+            font-size: 14px;
+            margin: 15px 0 10px 0;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #ccc;
         }
 
         h3 {
-            color: #fff;
-            font-size: 1.3em;
-            margin-top: 20px;
-            margin-bottom: 10px;
+            font-size: 12px;
+            margin: 10px 0 5px 0;
+            color: #000080;
         }
 
-        .job-title {
-            color: #c41e3a;
-            font-weight: bold;
-        }
-
-        .date {
-            color: #aaa;
-            font-style: italic;
+        p, li {
+            font-size: 11px;
+            line-height: 1.5;
+            margin: 5px 0;
         }
 
         ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        li {
-            margin: 10px 0;
             padding-left: 20px;
-            position: relative;
         }
 
-        li:before {
-            content: "🥋";
-            position: absolute;
-            left: 0;
+        .skill-group {
+            margin: 10px 0;
+            padding: 8px;
+            background: #f0f0f0;
+            border: 1px solid #808080;
         }
 
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 15px;
+        .job-header {
+            background: #e8e8e8;
+            padding: 5px;
+            margin: 10px 0 5px 0;
+            border-left: 3px solid #0054e3;
         }
 
-        .skill-tag {
-            background: rgba(196, 30, 58, 0.3);
-            padding: 8px 15px;
-            border-radius: 20px;
-            border: 1px solid #c41e3a;
-            font-size: 0.9em;
-            transition: transform 0.3s, background 0.3s;
+        ::-webkit-scrollbar {
+            width: 16px;
         }
 
-        .skill-tag:hover {
-            transform: scale(1.1);
-            background: rgba(196, 30, 58, 0.5);
+        ::-webkit-scrollbar-track {
+            background: #d4d0c8;
         }
 
-        .project-link {
-            display: inline-block;
-            margin-top: 10px;
-            color: #c41e3a;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
-
-        .project-link:hover {
-            color: #fff;
-        }
-
-        #karate-avatar {
-            position: fixed;
-            width: 60px;
-            height: 60px;
-            font-size: 50px;
-            z-index: 1000;
-            pointer-events: none;
-            transition: transform 0.3s;
-        }
-
-        footer {
-            text-align: center;
-            padding: 30px;
-            background: rgba(0, 0, 0, 0.5);
-            margin-top: 40px;
-            border-top: 2px solid #c41e3a;
-        }
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5em;
-            }
-            .subtitle {
-                font-size: 1.2em;
-            }
-            .contact-info {
-                flex-direction: column;
-                gap: 10px;
-            }
+        ::-webkit-scrollbar-thumb {
+            background: #c0c0c0;
+            border: 1px solid;
+            border-color: #ffffff #000000 #000000 #ffffff;
         }
     </style>
 </head>
 <body>
-    <div id="karate-avatar">🥋</div>
-
-    <header>
-        <h1>Samwel Waweru</h1>
-        <p class="subtitle">Senior AI Engineer • Martial Artist • Robotics Innovator</p>
-        <div class="contact-info">
-            <a href="mailto:samuelwawerukamau01@gmail.com">✉️ Email</a>
-            <a href="tel:+254792022398">📞 +254 792 022 398</a>
-            <a href="https://github.com/samuelwaweru2001" target="_blank">💻 GitHub</a>
-            <a href="https://linkedin.com/in/samkamau81" target="_blank">🔗 LinkedIn</a>
+    <div class="desktop" id="desktop">
+        <div class="icon" data-window="about">
+            <div class="icon-image">👤</div>
+            <div class="icon-label">About Me</div>
         </div>
-    </header>
-
-    <div class="container">
-        <section>
-            <h2>🥋 About Me</h2>
-            <p>Senior AI Engineer with over 4 years of hands-on experience building production-grade, cloud-native AI and automation systems. Like a martial artist perfecting their craft, I combine discipline, precision, and continuous learning to deliver robust AI solutions. My expertise spans LLM integrations, computer vision, and embedded systems—all backed by a strong foundation in robotics and mechatronics.</p>
-            <p style="margin-top: 15px;">Affiliated with IEEE Robotics and Automation, Raspberry Pi Foundation UK, and Kenya Karate Federation.</p>
-        </section>
-
-        <section>
-            <h2>💼 Professional Experience</h2>
-            
-            <h3><span class="job-title">Machine Learning Engineer</span> | Kaggle BIPOC <span class="date">(Dec 2022 – Present)</span></h3>
-            <ul>
-                <li>Developed production-grade LLM integrations with RAG-powered analytics using FAISS and Pinecone</li>
-                <li>Built AI agent platform enabling secure deployment to embedded IoT systems (ESP8266)</li>
-                <li>Fine-tuned Gemma-7B using LoRA, PEFT, and quantization for cybersecurity Q&A</li>
-                <li>Mentored distributed teams on LLMOps, API design, and secure model integration</li>
-            </ul>
-
-            <h3><span class="job-title">AI Solutions Expert</span> | EdTech Hub, Ministry of Education <span class="date">(Oct 2025 – Present)</span></h3>
-            <ul>
-                <li>Engineered AI-powered backend services for national-scale education platforms</li>
-                <li>Led secure LLM integration ensuring compliance with governance and data protection</li>
-                <li>Built multiple AI proof-of-concept services with optimized model pipelines</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>🎓 Education</h2>
-            <h3>Jomo Kenyatta University of Agriculture and Technology</h3>
-            <p><strong>B.Sc. Mechatronic Engineering, Robotics - Honors (2:1)</strong></p>
-            <p>🏆 Capstone Project (Rank 1/18): Delta Laser-Weeding Robot with YOLOv11</p>
-            
-            <h3 style="margin-top: 20px;">The University of Manchester</h3>
-            <p><strong>Summer School - Machine Learning, Big Data (Aug 2021)</strong></p>
-            <p>🏆 Hackathon Winner: "Effects of COVID-19 vis-à-vis Mental Health"</p>
-        </section>
-
-        <section>
-            <h2>📚 Published Research</h2>
-            <ul>
-                <li><strong>Edge-Optimized YOLOv11-Based Real-Time Weed Detection</strong> - Accepted to IEEE/RSJ IROS 2025, Hangzhou, China</li>
-                <li><strong>Biodiversity Conservation Protocol using Drone Technology</strong> - Forum for Global Challenges, University of Birmingham, 2022</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>🚀 Featured Projects</h2>
-            
-            <h3>FinGPT - Financial Language Model System</h3>
-            <p>Backend service for domain-specific financial LLM using FastAPI with well-typed Pydantic models, rate management, and caching.</p>
-            <div class="skills">
-                <span class="skill-tag">FastAPI</span>
-                <span class="skill-tag">Python</span>
-                <span class="skill-tag">REST API</span>
-            </div>
-            
-            <h3>Delta Laser Weeding Robot</h3>
-            <p>Computer vision inference service with YOLOv11 on Raspberry Pi 4, optimized using INT8 quantization for field operation.</p>
-            <div class="skills">
-                <span class="skill-tag">YOLOv11</span>
-                <span class="skill-tag">TensorFlow</span>
-                <span class="skill-tag">OpenCV</span>
-                <span class="skill-tag">Raspberry Pi</span>
-            </div>
-            
-            <h3>EmbedMind Studio</h3>
-            <p>Platform for deploying LLM-powered agents on embedded devices with Docker-based CI/CD workflows.</p>
-            <div class="skills">
-                <span class="skill-tag">Python</span>
-                <span class="skill-tag">Docker</span>
-                <span class="skill-tag">OpenAI API</span>
-                <span class="skill-tag">ESP8266</span>
-            </div>
-        </section>
-
-        <section>
-            <h2>🛠️ Technical Arsenal</h2>
-            <div class="skills">
-                <span class="skill-tag">Python</span>
-                <span class="skill-tag">JavaScript</span>
-                <span class="skill-tag">C++</span>
-                <span class="skill-tag">FastAPI</span>
-                <span class="skill-tag">REST API</span>
-                <span class="skill-tag">Docker</span>
-                <span class="skill-tag">Kubernetes</span>
-                <span class="skill-tag">TensorFlow</span>
-                <span class="skill-tag">LangChain</span>
-                <span class="skill-tag">LLM Integration</span>
-                <span class="skill-tag">RAG</span>
-                <span class="skill-tag">Computer Vision</span>
-                <span class="skill-tag">IoT</span>
-                <span class="skill-tag">PostgreSQL</span>
-                <span class="skill-tag">Git</span>
-            </div>
-        </section>
-
-        <section>
-            <h2>🌍 Community Impact</h2>
-            <h3><span class="job-title">County Coordinator/Master Trainer</span> | Raspberry Pi Foundation UK</h3>
-            <p>Led establishment of 10 Code Clubs, training over 250 students in Python and AI development while mentoring educators on pedagogy and project design.</p>
-        </section>
+        <div class="icon" data-window="experience">
+            <div class="icon-image">💼</div>
+            <div class="icon-label">Experience</div>
+        </div>
+        <div class="icon" data-window="education">
+            <div class="icon-image">🎓</div>
+            <div class="icon-label">Education</div>
+        </div>
+        <div class="icon" data-window="projects">
+            <div class="icon-image">🚀</div>
+            <div class="icon-label">Projects</div>
+        </div>
+        <div class="icon" data-window="skills">
+            <div class="icon-image">🛠️</div>
+            <div class="icon-label">Skills</div>
+        </div>
+        <div class="icon" data-window="contact">
+            <div class="icon-image">📧</div>
+            <div class="icon-label">Contact</div>
+        </div>
     </div>
 
-    <footer>
-        <p>🥋 Discipline • Precision • Innovation 🥋</p>
-        <p style="margin-top: 10px;">© 2025 Samwel Waweru | Oracle Cloud Infrastructure Certified Data Science Professional</p>
-    </footer>
+    <div class="window" id="about-window" style="left: 100px; top: 50px; width: 600px; height: 400px;">
+        <div class="title-bar">
+            <div class="title-bar-text">
+                <span>👤</span>
+                <span>About Me</span>
+            </div>
+            <div class="title-bar-controls">
+                <button onclick="minimizeWindow('about-window')">_</button>
+                <button onclick="maximizeWindow('about-window')">□</button>
+                <button onclick="closeWindow('about-window')">×</button>
+            </div>
+        </div>
+        <div class="window-content">
+            <h2>Samwel Waweru</h2>
+            <h3>Senior AI Engineer</h3>
+            <p>Senior AI Engineer with over 4 years of hands-on experience building production-grade, cloud-native AI and automation systems. Highly skilled in Python 3, REST API design, and distributed backend architectures, with a proven track record deploying GenAI and on-device ML solutions across Docker- and Kubernetes-based environments.</p>
+            <p>Experienced in designing intelligent agents, optimizing model performance, and integrating automation workflows at scale. Published ML researcher with international conference presentations and a strong engineering foundation that bridges AI, systems design, and real-world product delivery.</p>
+            <h3>Certifications</h3>
+            <p><strong>Oracle Cloud Infrastructure Certified Data Science Professional</strong> (Credential ID: OC4504520)</p>
+            <h3>Affiliations</h3>
+            <ul>
+                <li>IEEE Robotics and Automation</li>
+                <li>Raspberry Pi Foundation UK</li>
+                <li>Kenya Karate Federation</li>
+            </ul>
+            <h3>Languages</h3>
+            <p>English (Fluent), Kiswahili (Native)</p>
+        </div>
+    </div>
+
+    <div class="window" id="experience-window" style="left: 120px; top: 70px; width: 700px; height: 500px;">
+        <div class="title-bar">
+            <div class="title-bar-text">
+                <span>💼</span>
+                <span>Professional Experience</span>
+            </div>
+            <div class="title-bar-controls">
+                <button onclick="minimizeWindow('experience-window')">_</button>
+                <button onclick="maximizeWindow('experience-window')">□</button>
+                <button onclick="closeWindow('experience-window')">×</button>
+            </div>
+        </div>
+        <div class="window-content">
+            <div class="job-header">
+                <strong>Machine Learning Engineer (Kaggle BIPOC)</strong><br>
+                Kaggle USA, California (Remote) | Dec 2022 – Present
+            </div>
+            <ul>
+                <li>Developed and maintained production-grade LLM integrations (Python, REST APIs) including a RAG-powered analytics engine using FAISS and Pinecone</li>
+                <li>Built AI agent development platform enabling secure deployment of multi-agent LLM workflows to embedded IoT systems (ESP8266)</li>
+                <li>Fine-tuned and optimized Gemma-7B using LoRA, PEFT, and quantization techniques for cybersecurity Q&A</li>
+                <li>Diagnosed and resolved production issues across model APIs, background jobs, and data pipelines</li>
+                <li>Collaborated asynchronously with globally distributed engineering teams, providing architectural guidance and code reviews</li>
+            </ul>
+
+            <div class="job-header">
+                <strong>AI Solutions Expert</strong><br>
+                EdTech Hub, Ministry of Education — Consultant, Nairobi, Kenya | Oct 2025 – Present
+            </div>
+            <ul>
+                <li>Engineered AI-powered backend services for education platforms at national scale</li>
+                <li>Led design and deployment of secure LLM integrations ensuring compliance with governance and data protection</li>
+                <li>Worked cross-functionally with software engineers, product teams, and educators</li>
+                <li>Built and validated multiple proof-of-concept AI services with optimized model pipelines</li>
+            </ul>
+
+            <div class="job-header">
+                <strong>County Coordinator/Master Trainer</strong><br>
+                Raspberry Pi Foundation UK, Young Scientist Kenya | Apr 2024 – Present
+            </div>
+            <ul>
+                <li>Led establishing 10 Code Clubs focused on Python and AI development training for over 250 students</li>
+                <li>Trained and evaluated mentors on pedagogy and project design</li>
+                <li>Acted as liaison between government, educators and nonprofits</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="window" id="education-window" style="left: 140px; top: 90px; width: 650px; height: 450px;">
+        <div class="title-bar">
+            <div class="title-bar-text">
+                <span>🎓</span>
+                <span>Education</span>
+            </div>
+            <div class="title-bar-controls">
+                <button onclick="minimizeWindow('education-window')">_</button>
+                <button onclick="maximizeWindow('education-window')">□</button>
+                <button onclick="closeWindow('education-window')">×</button>
+            </div>
+        </div>
+        <div class="window-content">
+            <h2>Jomo Kenyatta University of Agriculture and Technology</h2>
+            <p><strong>B.Sc. Mechatronic Engineering, Robotics - Honors (2:1)</strong><br>Nairobi, Kenya</p>
+            <ul>
+                <li><strong>Capstone Project (Rank 1/18):</strong> Designed a Delta Laser-Weeding Robot with computer vision, real-time inference (Raspberry Pi + YOLOv11), and distributed microcontroller orchestration</li>
+                <li>Coursework: Calculus 1-4, Advanced Robotics, Differential Equations, Computer Science</li>
+            </ul>
+
+            <h2>The University of Manchester</h2>
+            <p><strong>Summer School - Machine Learning, Big Data</strong><br>United Kingdom, Manchester | Aug 2021</p>
+            <ul>
+                <li>Built and deployed NLP models using Hugging Face Transformers (BERT) for sentiment analysis</li>
+                <li><strong>Hackathon Winner:</strong> Authored award-winning report on "Effects of COVID-19 vis-à-vis Mental Health"</li>
+            </ul>
+
+            <h2>Published Papers</h2>
+            <ul>
+                <li><strong>Edge-Optimized YOLOv11-Based Real-Time Weed Detection for Autonomous Precision Agriculture</strong> - Accepted to IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS 2025), Hangzhou, China</li>
+                <li><strong>A Biodiversity Conservation Protocol in Meru County for Fire Prevention using Drone Technology</strong> - Accepted at Forum for Global Challenges, University of Birmingham, May 2022</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="window" id="projects-window" style="left: 160px; top: 110px; width: 700px; height: 500px;">
+        <div class="title-bar">
+            <div class="title-bar-text">
+                <span>🚀</span>
+                <span>Projects</span>
+            </div>
+            <div class="title-bar-controls">
+                <button onclick="minimizeWindow('projects-window')">_</button>
+                <button onclick="maximizeWindow('projects-window')">□</button>
+                <button onclick="closeWindow('projects-window')">×</button>
+            </div>
+        </div>
+        <div class="window-content">
+            <h3>FinGPT — Financial Language Model System</h3>
+            <p>Implemented a backend service for a domain-specific financial LLM using FastAPI with well-typed Pydantic models. Added input validation, rate management, and caching for reliable real-time inference.</p>
+            <p><strong>Tech:</strong> FastAPI, Pydantic, Python, REST API Design, Async I/O</p>
+
+            <h3>Delta Laser Weeding Robot</h3>
+            <p>Built computer vision inference service around YOLOv11 running on Raspberry Pi 4, optimized using INT8 quantization. Designed Python modules exposing detection results through structured interfaces.</p>
+            <p><strong>Tech:</strong> Python, YOLOv11, TensorFlow, OpenCV, Raspberry Pi</p>
+
+            <h3>EmbedMind Studio</h3>
+            <p>Developed lightweight platform for assembling and deploying LLM-powered agents on embedded devices. Built Python backend orchestrating agent logic with Gemini and OpenAI APIs.</p>
+            <p><strong>Tech:</strong> Python, C++, Docker, CI/CD, Gemini/OpenAI APIs, ESP8266</p>
+
+            <h3>MentalMuse</h3>
+            <p>Created secure NLP analysis pipeline for mental-health text. Implemented scalable data-processing services using Python and orchestrated batch/stream workloads using Snowpark.</p>
+            <p><strong>Tech:</strong> Python, NLP Pipelines, Snowpark (Snowflake), Secure API Integration</p>
+
+            <h3>Kilimo-AI</h3>
+            <p>Built LLM-assisted irrigation control system for IoT hardware. Created Python–C++ modules to process natural-language input and translate decisions into device-level irrigation commands.</p>
+            <p><strong>Tech:</strong> Python, C++, LLM Prompt Engineering, IoT Controllers, REST APIs</p>
+        </div>
+    </div>
+
+    <div class="window" id="skills-window" style="left: 180px; top: 130px; width: 650px; height: 500px;">
+        <div class="title-bar">
+            <div class="title-bar-text">
+                <span>🛠️</span>
+                <span>Skills and Technologies</span>
+            </div>
+            <div class="title-bar-controls">
+                <button onclick="minimizeWindow('skills-window')">_</button>
+                <button onclick="maximizeWindow('skills-window')">□</button>
+                <button onclick="closeWindow('skills-window')">×</button>
+            </div>
+        </div>
+        <div class="window-content">
+            <div class="skill-group">
+                <h3>Programming & Tools</h3>
+                <p>Python, JavaScript, C++, FastAPI, REST API Design, GraphQL (basic), Pydantic, SQL, PostgreSQL, Docker, CI/CD Workflows, Git, Kubernetes (basic), TensorFlow, Hugging Face, LangChain, Snowflake/Snowpark, Embedded Systems (ESP8266/Raspberry Pi), Linux</p>
+            </div>
+
+            <div class="skill-group">
+                <h3>AI & LLM Engineering</h3>
+                <p>LLM integration (OpenAI, Gemini), prompt design, retrieval-augmented generation (RAG), model optimization (quantization, LoRA, PEFT), latency/performance tuning, secure text-processing pipelines</p>
+            </div>
+
+            <div class="skill-group">
+                <h3>Backend & Systems</h3>
+                <p>API schema design, background job orchestration, asynchronous I/O, debugging and profiling, containerized services, monitoring/logging, reliability engineering, distributed development workflows</p>
+            </div>
+
+            <div class="skill-group">
+                <h3>Core Strengths</h3>
+                <p>Proactive problem solver, strong communicator, collaborative team player, adaptable in fast-paced Agile environments, continuously learning</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="window" id="contact-window" style="left: 200px; top: 150px; width: 500px; height: 350px;">
+        <div class="title-bar">
+            <div class="title-bar-text">
+                <span>📧</span>
+                <span>Contact Information</span>
+            </div>
+            <div class="title-bar-controls">
+                <button onclick="minimizeWindow('contact-window')">_</button>
+                <button onclick="maximizeWindow('contact-window')">□</button>
+                <button onclick="closeWindow('contact-window')">×</button>
+            </div>
+        </div>
+        <div class="window-content">
+            <h2>Get in Touch</h2>
+            <div class="skill-group">
+                <h3>📧 Email</h3>
+                <p><a href="mailto:samuelwawerukamau01@gmail.com">samuelwawerukamau01@gmail.com</a></p>
+            </div>
+            <div class="skill-group">
+                <h3>📞 Phone</h3>
+                <p>+254 792 022 398</p>
+            </div>
+            <div class="skill-group">
+                <h3>💻 GitHub</h3>
+                <p><a href="https://github.com/samuelwaweru2001" target="_blank">github.com/samuelwaweru2001</a></p>
+            </div>
+            <div class="skill-group">
+                <h3>🔗 LinkedIn</h3>
+                <p><a href="https://linkedin.com/in/samkamau81" target="_blank">linkedin.com/in/samkamau81</a></p>
+            </div>
+            <div class="skill-group">
+                <h3>📍 Location</h3>
+                <p>Nairobi, Kenya</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="start-menu" id="startMenu">
+        <div class="start-menu-header">Samwel Waweru</div>
+        <div class="start-menu-items">
+            <div class="start-menu-item" onclick="openWindow('about-window')">About Me</div>
+            <div class="start-menu-item" onclick="openWindow('experience-window')">Professional Experience</div>
+            <div class="start-menu-item" onclick="openWindow('education-window')">Education</div>
+            <div class="start-menu-item" onclick="openWindow('projects-window')">Projects</div>
+            <div class="start-menu-item" onclick="openWindow('skills-window')">Skills</div>
+            <div class="start-menu-item" onclick="openWindow('contact-window')">Contact</div>
+        </div>
+    </div>
+
+    <div class="taskbar">
+        <button class="start-button" onclick="toggleStartMenu()">
+            <span class="start-logo">🪟</span>
+            <span>start</span>
+        </button>
+        <div class="taskbar-items" id="taskbarItems"></div>
+        <div class="system-tray">
+            <span>🔊</span>
+            <span class="clock" id="clock">12:00 PM</span>
+        </div>
+    </div>
 
     <script>
-        const avatar = document.getElementById('karate-avatar');
-        let x = Math.random() * (window.innerWidth - 60);
-        let y = Math.random() * (window.innerHeight - 60);
-        let vx = (Math.random() - 0.5) * 4;
-        let vy = (Math.random() - 0.5) * 4;
-        let rotation = 0;
+        let activeWindows = new Set();
+        let draggedElement = null;
+        let offsetX, offsetY;
 
-        const karateEmojis = ['🥋', '🤸', '🤸‍♂️', '🥊'];
-        let currentEmoji = 0;
+        function updateClock() {
+            const now = new Date();
+            const hours = now.getHours() % 12 || 12;
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const ampm = now.getHours() >= 12 ? 'PM' : 'AM';
+            document.getElementById('clock').textContent = `${hours}:${minutes} ${ampm}`;
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
 
-        function animate() {
-            x += vx;
-            y += vy;
-
-            if (x <= 0 || x >= window.innerWidth - 60) {
-                vx = -vx;
-                currentEmoji = (currentEmoji + 1) % karateEmojis.length;
-                avatar.textContent = karateEmojis[currentEmoji];
-            }
-            if (y <= 0 || y >= window.innerHeight - 60) {
-                vy = -vy;
-                currentEmoji = (currentEmoji + 1) % karateEmojis.length;
-                avatar.textContent = karateEmojis[currentEmoji];
-            }
-
-            rotation += 2;
-            avatar.style.left = x + 'px';
-            avatar.style.top = y + 'px';
-            avatar.style.transform = `rotate(${rotation}deg)`;
-
-            requestAnimationFrame(animate);
+        function toggleStartMenu() {
+            document.getElementById('startMenu').classList.toggle('active');
         }
 
-        animate();
+        function openWindow(windowId) {
+            const win = document.getElementById(windowId);
+            win.classList.add('active');
+            activeWindows.add(windowId);
+            updateTaskbar();
+            toggleStartMenu();
+        }
 
-        window.addEventListener('resize', () => {
-            if (x > window.innerWidth - 60) x = window.innerWidth - 60;
-            if (y > window.innerHeight - 60) y = window.innerHeight - 60;
+        function closeWindow(windowId) {
+            const win = document.getElementById(windowId);
+            win.classList.remove('active');
+            activeWindows.delete(windowId);
+            updateTaskbar();
+        }
+
+        function minimizeWindow(windowId) {
+            const win = document.getElementById(windowId);
+            win.classList.remove('active');
+            updateTaskbar();
+        }
+
+        function maximizeWindow(windowId) {
+            const win = document.getElementById(windowId);
+            if (win.style.width === '100%') {
+                win.style.width = '650px';
+                win.style.height = '450px';
+                win.style.left = '100px';
+                win.style.top = '50px';
+            } else {
+                win.style.width = '100%';
+                win.style.height = 'calc(100vh - 30px)';
+                win.style.left = '0';
+                win.style.top = '0';
+            }
+        }
+
+        function updateTaskbar() {
+            const taskbarItems = document.getElementById('taskbarItems');
+            taskbarItems.innerHTML = '';
+            activeWindows.forEach(windowId => {
+                const win = document.getElementById(windowId);
+                const title = win.querySelector('.title-bar-text span:last-child').textContent;
+                const item = document.createElement('div');
+                item.className = 'taskbar-item';
+                if (win.classList.contains('active')) {
+                    item.classList.add('active');
+                }
+                item.textContent = title;
+                item.onclick = () => {
+                    if (win.classList.contains('active')) {
+                        minimizeWindow(windowId);
+                    } else {
+                        win.classList.add('active');
+                    }
+                };
+                taskbarItems.appendChild(item);
+            });
+        }
+
+        document.querySelectorAll('.icon').forEach(icon => {
+            icon.addEventListener('click', function() {
+                document.querySelectorAll('.icon').forEach(i => i.classList.remove('selected'));
+                this.classList.add('selected');
+            });
+            icon.addEventListener('dblclick', function() {
+                const windowId = this.dataset.window + '-window';
+                openWindow(windowId);
+            });
+        });
+
+        document.querySelectorAll('.title-bar').forEach(titleBar => {
+            titleBar.addEventListener('mousedown', function(e) {
+                if (e.target.tagName === 'BUTTON') return;
+                draggedElement = this.parentElement;
+                const rect = draggedElement.getBoundingClientRect();
+                offsetX = e.clientX - rect.left;
+                offsetY = e.clientY - rect.top;
+            });
+        });
+
+        document.addEventListener('mousemove', function(e) {
+            if (draggedElement) {
+                draggedElement.style.left = (e.clientX - offsetX) + 'px';
+                draggedElement.style.top = (e.clientY - offsetY) + 'px';
+            }
+        });
+
+        document.addEventListener('mouseup', function() {
+            draggedElement = null;
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.start-button') && !e.target.closest('.start-menu')) {
+                document.getElementById('startMenu').classList.remove('active');
+            }
         });
     </script>
 </body>
