@@ -1,0 +1,96 @@
+.window {
+    position: absolute;
+    background: #ece9d8;
+    border: 2px solid;
+    border-color: #0054e3 #0054e3 #0054e3 #0054e3;
+    box-shadow: 3px 3px 8px rgba(0,0,0,0.3);
+    min-width: 400px;
+    min-height: 300px;
+    display: none;
+    z-index: 1;
+}
+
+.window.active {
+    display: block;
+    z-index: 10;
+}
+
+.title-bar {
+    background: linear-gradient(to right, #0a58ca 0%, #4096ee 100%);
+    padding: 3px 5px;
+    color: white;
+    font-weight: bold;
+    font-size: 11px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: move;
+}
+
+.title-bar-text {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.title-bar-controls button {
+    width: 21px;
+    height: 21px;
+    border: 1px solid;
+    border-color: white #003c74 #003c74 white;
+    background: #d4d0c8;
+    font-size: 10px;
+    margin-left: 2px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.title-bar-controls button:active {
+    border-color: #003c74 white white #003c74;
+}
+
+.window-content {
+    padding: 10px;
+    height: calc(100% - 27px);
+    overflow-y: auto;
+    background: white;
+}
+
+.window-content h2 {
+    color: #0054e3;
+    font-size: 14px;
+    margin: 15px 0 10px 0;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #ccc;
+}
+
+.window-content h3 {
+    font-size: 12px;
+    margin: 10px 0 5px 0;
+    color: #000080;
+}
+
+.window-content p,
+.window-content li {
+    font-size: 11px;
+    line-height: 1.5;
+    margin: 5px 0;
+}
+
+.window-content ul {
+    padding-left: 20px;
+}
+
+.skill-group {
+    margin: 10px 0;
+    padding: 8px;
+    background: #f0f0f0;
+    border: 1px solid #808080;
+}
+
+.job-header {
+    background: #e8e8e8;
+    padding: 5px;
+    margin: 10px 0 5px 0;
+    border-left: 3px solid #0054e3;
+}

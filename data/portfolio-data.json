@@ -1,0 +1,90 @@
+{
+  "icons": [
+    {
+      "id": "about",
+      "icon": "👤",
+      "label": "About Me",
+      "windowId": "about-window"
+    },
+    {
+      "id": "experience",
+      "icon": "💼",
+      "label": "Experience",
+      "windowId": "experience-window"
+    },
+    {
+      "id": "education",
+      "icon": "🎓",
+      "label": "Education",
+      "windowId": "education-window"
+    },
+    {
+      "id": "projects",
+      "icon": "🚀",
+      "label": "Projects",
+      "windowId": "projects-window"
+    },
+    {
+      "id": "skills",
+      "icon": "🛠️",
+      "label": "Skills",
+      "windowId": "skills-window"
+    },
+    {
+      "id": "contact",
+      "icon": "📧",
+      "label": "Contact",
+      "windowId": "contact-window"
+    }
+  ],
+  "windows": [
+    {
+      "id": "about-window",
+      "title": "About Me",
+      "icon": "👤",
+      "position": { "left": 100, "top": 50 },
+      "size": { "width": 600, "height": 400 },
+      "contentFile": "components/about.html"
+    },
+    {
+      "id": "experience-window",
+      "title": "Professional Experience",
+      "icon": "💼",
+      "position": { "left": 120, "top": 70 },
+      "size": { "width": 700, "height": 500 },
+      "contentFile": "components/experience.html"
+    },
+    {
+      "id": "education-window",
+      "title": "Education",
+      "icon": "🎓",
+      "position": { "left": 140, "top": 90 },
+      "size": { "width": 650, "height": 450 },
+      "contentFile": "components/education.html"
+    },
+    {
+      "id": "projects-window",
+      "title": "Projects",
+      "icon": "🚀",
+      "position": { "left": 160, "top": 110 },
+      "size": { "width": 700, "height": 500 },
+      "contentFile": "components/projects.html"
+    },
+    {
+      "id": "skills-window",
+      "title": "Skills and Technologies",
+      "icon": "🛠️",
+      "position": { "left": 180, "top": 130 },
+      "size": { "width": 650, "height": 500 },
+      "contentFile": "components/skills.html"
+    },
+    {
+      "id": "contact-window",
+      "title": "Contact Information",
+      "icon": "📧",
+      "position": { "left": 200, "top": 150 },
+      "size": { "width": 500, "height": 350 },
+      "contentFile": "components/contact.html"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Tahoma', 'MS Sans Serif', sans-serif;
+    background: #5a8cc4;
+    overflow: hidden;
+    height: 100vh;
+}
+
+::-webkit-scrollbar {
+    width: 16px;
+}
+
+::-webkit-scrollbar-track {
+    background: #d4d0c8;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c0c0c0;
+    border: 1px solid;
+    border-color: #ffffff #000000 #000000 #ffffff;
+}
+
+a {
+    color: #0054e3;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
