@@ -49,11 +49,15 @@ const WindowManager = {
     open: function(windowId) {
         const win = document.getElementById(windowId);
         if (!win) return;
-        
+
+        document.querySelectorAll('.window').forEach(w => w.style.zIndex = 1);
+        win.style.zIndex = 10;
+
         win.classList.add('active');
         this.activeWindows.add(windowId);
         Taskbar.update();
     },
+
 
     close: function(windowId) {
         const win = document.getElementById(windowId);
