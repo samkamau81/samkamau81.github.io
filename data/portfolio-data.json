@@ -85,6 +85,32 @@
     "position": { "left": 200, "top": 150 },
     "size": { "width": 500, "height": 350 },
     "contentFile": "components/contact.html"
+},
+{
+    "id": "cv-window",
+    "title": "Curriculum Vitae",
+    "icon": "📄",
+    "position": { "left": 220, "top": 80 },
+    "size": { "width": 700, "height": 500 },
+    "contentFile": "components/cv.html"
+},
+{
+    "id": "recycle-window",
+    "title": "Recycle Bin",
+    "icon": "🗑️",
+    "position": { "left": 240, "top": 100 },
+    "size": { "width": 500, "height": 400 },
+    "contentFile": "components/recycle.html"
+},
+{
+    "id": "gallery-window",
+    "title": "Gallery",
+    "icon": "🖼️",
+    "position": { "left": 260, "top": 120 },
+    "size": { "width": 750, "height": 520 },
+    "contentFile": "components/gallery.html"
 }
+
+
   ]
 }

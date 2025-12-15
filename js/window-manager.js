@@ -1,4 +1,5 @@
 // Window management system
+
 const WindowManager = {
     activeWindows: new Set(),
     draggedElement: null,

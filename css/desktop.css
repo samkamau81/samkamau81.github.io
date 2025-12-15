@@ -3,6 +3,60 @@
     padding: 10px;
     position: relative;
     overflow: auto;
+    filter: saturate(1.05) contrast(1.02);
+    image-rendering: auto;
+
+
+
+    /* Windows XP Bliss background */
+    background-image: url('../assets/xp-bliss.jfif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.gallery img {
+    width: 150px;
+    margin: 6px;
+    border: 1px solid #999;
+}
+
+/* Centered desktop photo frame */
+.desktop-photo-frame {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0; /* stays behind windows */
+    pointer-events: none; /* clicks pass through */
+}
+
+/* XP-style frame */
+.xp-frame-title {
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+/* Toggle icon */
+.xp-toggle {
+    font-size: 12px;
+    padding: 0 6px;
+}
+
+/* Collapsible content */
+.xp-frame-content {
+    max-height: 500px;
+    overflow: hidden;
+    transition: max-height 0.25s ease;
+}
+
+/* Collapsed state */
+.xp-frame.collapsed .xp-frame-content {
+    max-height: 0;
+    padding: 0;
 }
 
 
+.desktop::-webkit-scrollbar {
+    display: none;
+}

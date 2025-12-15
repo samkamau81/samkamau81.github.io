@@ -6,10 +6,12 @@
 
 body {
     font-family: 'Tahoma', 'MS Sans Serif', sans-serif;
-    background: #5a8cc4;
+    background: black; /* fallback only */
     overflow: hidden;
     height: 100vh;
 }
+
+
 
 ::-webkit-scrollbar {
     width: 16px;

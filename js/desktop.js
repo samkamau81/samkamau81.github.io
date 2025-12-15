@@ -62,3 +62,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     await Desktop.init();
     Taskbar.init();
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const frame = document.getElementById('photoFrame');
+    const title = document.getElementById('photoFrameTitle');
+    const toggle = frame.querySelector('.xp-toggle');
+
+    title.addEventListener('click', () => {
+        frame.classList.toggle('collapsed');
+        toggle.textContent = frame.classList.contains('collapsed') ? '▢' : '▁';
+    });
+});
