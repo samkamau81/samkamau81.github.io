@@ -1,5 +1,56 @@
-<div class="gallery">
-    <img src="assets/gallery/photo1.jpg">
-    <img src="assets/gallery/photo2.jpg">
-    <img src="assets/gallery/photo3.jpg">
+<div class="title-bar">
+    <div class="title-bar-text">
+        <span>🖼️</span>
+        <span>Project Gallery</span>
+    </div>
+    <div class="title-bar-controls">
+        <button onclick="minimizeWindow('gallery-window')">_</button>
+        <button onclick="closeWindow('gallery-window')">×</button>
+    </div>
+</div>
+<div class="window-content">
+    <h2 style="color: #0054e3; margin-bottom: 15px;">Visual Showcase</h2>
+    <p style="font-size: 11px; margin-bottom: 20px;">Explore my work in AI, Robotics, and Software Engineering</p>
+    
+    <div class="gallery-grid">
+        <div class="gallery-item" onclick="alert('Delta Robot: Computer vision-powered weeding robot with YOLOv11')">
+            <div class="gallery-item-icon">🤖</div>
+            <div class="gallery-item-label">Delta Laser Robot</div>
+        </div>
+        
+        <div class="gallery-item" onclick="alert('FinGPT: Financial LLM with FastAPI backend')">
+            <div class="gallery-item-icon">💰</div>
+            <div class="gallery-item-label">FinGPT System</div>
+        </div>
+        
+        <div class="gallery-item" onclick="alert('EmbedMind: LLM agents on embedded devices')">
+            <div class="gallery-item-icon">🧠</div>
+            <div class="gallery-item-label">EmbedMind Studio</div>
+        </div>
+        
+        <div class="gallery-item" onclick="alert('MentalMuse: NLP mental health analysis')">
+            <div class="gallery-item-icon">💭</div>
+            <div class="gallery-item-label">MentalMuse</div>
+        </div>
+        
+        <div class="gallery-item" onclick="alert('Kilimo-AI: Smart irrigation with LLMs')">
+            <div class="gallery-item-icon">🌱</div>
+            <div class="gallery-item-label">Kilimo-AI</div>
+        </div>
+        
+        <div class="gallery-item" onclick="alert('Code Clubs: Training 250+ students')">
+            <div class="gallery-item-icon">👨‍🏫</div>
+            <div class="gallery-item-label">Education Work</div>
+        </div>
+        
+        <div class="gallery-item" onclick="alert('Conference Papers: IEEE IROS 2025')">
+            <div class="gallery-item-icon">📚</div>
+            <div class="gallery-item-label">Research Papers</div>
+        </div>
+        
+        <div class="gallery-item" onclick="alert('RAG Systems: FAISS & Pinecone integration')">
+            <div class="gallery-item-icon">🔍</div>
+            <div class="gallery-item-label">RAG Analytics</div>
+        </div>
+    </div>
 </div>

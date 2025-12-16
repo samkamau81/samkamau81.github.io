@@ -1,18 +1,31 @@
-.window {
-    position: absolute;
+/* Main/Secondary Windows */
+.main-window,
+.secondary-window {
     background: #ece9d8;
     border: 2px solid;
     border-color: #0054e3 #0054e3 #0054e3 #0054e3;
-    box-shadow: 3px 3px 8px rgba(0,0,0,0.3);
-    min-width: 400px;
-    min-height: 300px;
-    display: none;
-    z-index: 1;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
+    display: flex;
+    flex-direction: column;
 }
 
-.window.active {
-    display: block;
-    z-index: 10;
+.main-window {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    height: 90%;
+}
+
+.secondary-window {
+    position: fixed;
+    border: 2px solid #0054e3;
+    display: none;
+    z-index: 100;
+}
+
+.secondary-window.active {
+    display: flex;
 }
 
 .title-bar {
@@ -24,7 +37,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    cursor: move;
 }
 
 .title-bar-text {
@@ -43,6 +55,7 @@
     margin-left: 2px;
     cursor: pointer;
     font-weight: bold;
+    color: #000;
 }
 
 .title-bar-controls button:active {
@@ -50,47 +63,217 @@
 }
 
 .window-content {
-    padding: 10px;
-    height: calc(100% - 27px);
+    flex: 1;
     overflow-y: auto;
     background: white;
+    padding: 30px;
 }
 
-.window-content h2 {
-    color: #0054e3;
-    font-size: 14px;
-    margin: 15px 0 10px 0;
-    padding-bottom: 5px;
-    border-bottom: 1px solid #ccc;
+/* Profile Section */
+.profile-header {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #0054e3;
+}
+/* ... (rest of the profile/job/section styles) ... */
+
+/* Profile Image styles */
+.profile-image-container {
+    flex-shrink: 0;
 }
 
-.window-content h3 {
-    font-size: 12px;
-    margin: 10px 0 5px 0;
-    color: #000080;
-}
-
-.window-content p,
-.window-content li {
-    font-size: 11px;
-    line-height: 1.5;
-    margin: 5px 0;
-}
-
-.window-content ul {
-    padding-left: 20px;
-}
-
-.skill-group {
-    margin: 10px 0;
+.profile-frame {
+    background: #d4d0c8;
     padding: 8px;
-    background: #f0f0f0;
-    border: 1px solid #808080;
+    border: 2px solid;
+    border-color: #ffffff #808080 #808080 #ffffff;
+    box-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+}
+
+.profile-frame-inner {
+    border: 2px solid;
+    border-color: #808080 #ffffff #ffffff #808080;
+    padding: 2px;
+    background: #fff;
+}
+
+.profile-image {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+}
+
+.profile-info {
+    flex: 1;
+}
+
+.profile-name {
+    font-size: 28px;
+    color: #0054e3;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.profile-title {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+.profile-contact {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    font-size: 11px;
+    margin-top: 15px;
+}
+
+.section {
+    margin: 25px 0;
+}
+
+.section-title {
+    font-size: 16px;
+    color: #0054e3;
+    margin-bottom: 12px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #ccc;
+    font-weight: bold;
+}
+
+.job-item {
+    background: #f5f5f5;
+    padding: 12px;
+    margin: 10px 0;
+    border-left: 4px solid #0054e3;
 }
 
 .job-header {
-    background: #e8e8e8;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 5px;
+}
+
+.job-meta {
+    font-size: 10px;
+    color: #666;
+    font-style: italic;
+    margin-bottom: 8px;
+}
+
+.job-description {
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+.job-description ul {
+    margin-left: 20px;
+    margin-top: 5px;
+}
+
+.job-description li {
+    margin: 3px 0;
+}
+
+/* Gallery Grid */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+    margin: 15px 0;
+}
+
+.gallery-item {
+    background: #f0f0f0;
+    border: 1px solid #808080;
+    padding: 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.gallery-item:hover {
+    background: #e0e0e0;
+}
+
+.gallery-item-label {
+    font-size: 11px;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Skills Section */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.skill-category {
+    background: #f5f5f5;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-left: 4px solid #0054e3;
+}
+
+.skill-category h3 {
+    font-size: 12px;
+    color: #0054e3;
+    margin-bottom: 8px;
+}
+
+.skill-category p {
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+/* Email Form */
+.email-form {
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 11px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
     padding: 5px;
-    margin: 10px 0 5px 0;
-    border-left: 3px solid #0054e3;
+    border: 2px solid;
+    border-color: #808080 #ffffff #ffffff #808080;
+    font-family: 'Tahoma', sans-serif;
+    font-size: 11px;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.btn-primary {
+    background: linear-gradient(to bottom, #4a90e2 0%, #357abd 100%);
+    color: white;
+    border: 1px solid;
+    border-color: #7ab8f5 #2868a8 #2868a8 #7ab8f5;
+    padding: 8px 20px;
+    cursor: pointer;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(to bottom, #5a9ff0 0%, #4685c4 100%);
 }

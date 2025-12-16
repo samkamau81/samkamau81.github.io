@@ -6,13 +6,19 @@
 
 body {
     font-family: 'Tahoma', 'MS Sans Serif', sans-serif;
-    background: black; /* fallback only */
-    overflow: hidden;
-    height: 100vh;
+    /* Move background and viewport styles to desktop.css */
 }
 
+a {
+    color: #0054e3;
+    text-decoration: none;
+}
 
+a:hover {
+    text-decoration: underline;
+}
 
+/* Scrollbar styles (keep for global browser styling) */
 ::-webkit-scrollbar {
     width: 16px;
 }
@@ -25,13 +31,4 @@ body {
     background: #c0c0c0;
     border: 1px solid;
     border-color: #ffffff #000000 #000000 #ffffff;
-}
-
-a {
-    color: #0054e3;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
 }

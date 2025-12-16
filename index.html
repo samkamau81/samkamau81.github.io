@@ -1,52 +1,1050 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Samwel Waweru - Portfolio</title>
-    
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/desktop.css">
-    <link rel="stylesheet" href="css/windows.css">
-    <link rel="stylesheet" href="css/taskbar.css">
-    <link rel="stylesheet" href="css/icons.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+    /* css/desktop.css */
+
+        body {
+            font-family: 'Tahoma', 'MS Sans Serif', sans-serif;
+            /* * RETAINING original style for consistency, 
+            * but setting the desktop background in the .desktop class
+            * for better control over the visible area. 
+            */
+            overflow: hidden;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        .profile-contact div {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 6px;
+        font-size: 13px;
+    }
+
+    .profile-contact i {
+        width: 18px;
+        color: #1a4fa3; /* XP blue */
+    }
+
+    .desktop {
+        /* Set the XP Bliss image as the background for the desktop area */
+        background: #3888e3 url('../assets/xp-bliss.jfif') no-repeat center center;
+        background-size: cover; /* Ensures the image fills the viewport */
+        
+        height: calc(100vh - 40px);
+        padding: 20px;
+        position: relative;
+    }
+
+        /* Main Profile Window */
+        .main-window {
+            position: absolute;
+            top: 5%;
+            left: 5%;
+            width: 90%;
+            height: 90%;
+            background: #ece9d8;
+            border: 2px solid;
+            border-color: #0054e3 #0054e3 #0054e3 #0054e3;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .title-bar {
+            background: linear-gradient(to right, #0a58ca 0%, #4096ee 100%);
+            padding: 3px 5px;
+            color: white;
+            font-weight: bold;
+            font-size: 11px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .title-bar-text {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .title-bar-controls button {
+            width: 21px;
+            height: 21px;
+            border: 1px solid;
+            border-color: white #003c74 #003c74 white;
+            background: #d4d0c8;
+            font-size: 10px;
+            margin-left: 2px;
+            cursor: pointer;
+            font-weight: bold;
+            color: #000;
+        }
+
+        .title-bar-controls button:active {
+            border-color: #003c74 white white #003c74;
+        }
+
+        .window-content {
+            flex: 1;
+            overflow-y: auto;
+            background: white;
+            padding: 30px;
+        }
+
+        /* Profile Section */
+        .profile-header {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #0054e3;
+        }
+
+        .profile-image-container {
+            flex-shrink: 0;
+        }
+
+        .profile-frame {
+            background: #d4d0c8;
+            padding: 8px;
+            border: 2px solid;
+            border-color: #ffffff #808080 #808080 #ffffff;
+            box-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+        }
+
+        .profile-frame-inner {
+            border: 2px solid;
+            border-color: #808080 #ffffff #ffffff #808080;
+            padding: 2px;
+            background: #fff;
+        }
+
+        .profile-image {
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .profile-info {
+            flex: 1;
+        }
+
+        .profile-name {
+            font-size: 28px;
+            color: #0054e3;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .profile-title {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        .profile-contact {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+            font-size: 11px;
+            margin-top: 15px;
+        }
+
+        .section {
+            margin: 25px 0;
+        }
+
+        .section-title {
+            font-size: 16px;
+            color: #0054e3;
+            margin-bottom: 12px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #ccc;
+            font-weight: bold;
+        }
+
+        .job-item {
+            background: #f5f5f5;
+            padding: 12px;
+            margin: 10px 0;
+            border-left: 4px solid #0054e3;
+        }
+
+        .job-header {
+            font-weight: bold;
+            color: #000;
+            margin-bottom: 5px;
+        }
+
+        .job-meta {
+            font-size: 10px;
+            color: #666;
+            font-style: italic;
+            margin-bottom: 8px;
+        }
+
+        .job-description {
+            font-size: 11px;
+            line-height: 1.6;
+        }
+
+        .job-description ul {
+            margin-left: 20px;
+            margin-top: 5px;
+        }
+
+        .job-description li {
+            margin: 3px 0;
+        }
+
+        /* Taskbar */
+        .taskbar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 40px;
+            background: linear-gradient(to bottom, #245edb 0%, #1941a5 100%);
+            border-top: 1px solid #1659e7;
+            display: flex;
+            align-items: center;
+            padding: 3px 4px;
+            box-shadow: 0 -1px 3px rgba(0,0,0,0.2);
+            z-index: 1000;
+            gap: 4px;
+        }
+
+        .start-button {
+            background: url('assets/windows-xp-start-button-png-3.jpg') no-repeat center center;
+            background-size: 100% 100%;
+            border: none;
+            cursor: pointer;
+            width: 100px;
+            height: 38px;
+            border-radius: 0 12px 12px 0;
+            padding: 0;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .start-button:hover {
+            filter: brightness(1.1);
+        }
+
+        .start-button:active {
+            filter: brightness(0.95);
+            transform: translateY(1px);
+        }
+
+        .taskbar-title {
+            color: white;
+            font-size: 11px;
+            font-weight: bold;
+            padding: 0 10px;
+        }
+
+        .system-tray {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            padding: 0 10px;
+            background: #0c6cb8;
+            height: 28px;
+            border: 1px solid;
+            border-color: #084a87 #0d7fcd #0d7fcd #084a87;
+            margin-left: auto;
+            border-radius: 2px;
+        }
+
+        .clock {
+            color: white;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        /* Start Menu */
+        .start-menu {
+            position: fixed;
+            bottom: 40px;
+            left: 4px;
+            width: 350px;
+            background: #d4d0c8;
+            border: 2px solid;
+            border-color: #ffffff #000000 #000000 #ffffff;
+            display: none;
+            box-shadow: 3px 3px 8px rgba(0,0,0,0.3);
+            z-index: 1001;
+        }
+
+        .start-menu.active {
+            display: block;
+        }
+
+        .start-menu-header {
+            background: linear-gradient(to bottom, #245edb 0%, #1941a5 100%);
+            color: white;
+            padding: 25px 15px;
+        }
+
+        .start-menu-header-name {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .start-menu-header-title {
+            font-size: 12px;
+            opacity: 0.9;
+            margin-top: 5px;
+        }
+
+        .start-menu-separator {
+            height: 2px;
+            background: linear-gradient(to right, #808080 0%, #ffffff 50%, #808080 100%);
+        }
+
+        .start-menu-items {
+            padding: 5px 0;
+        }
+
+        .start-menu-item {
+            padding: 10px 15px 10px 50px;
+            cursor: pointer;
+            font-size: 11px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .start-menu-item:hover {
+            background: #0a58ca;
+            color: white;
+        }
+
+        .menu-icon {
+            position: absolute;
+            left: 20px;
+            font-size: 20px;
+        }
+
+        .logout-item {
+            background: #ddd;
+            font-weight: bold;
+        }
+
+        .logout-item:hover {
+            background: #c44;
+            color: white;
+        }
+
+        /* Secondary Windows */
+        .secondary-window {
+            position: fixed;
+            background: #ece9d8;
+            border: 2px solid #0054e3;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
+            display: none;
+            z-index: 100;
+        }
+
+        .secondary-window.active {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 16px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #d4d0c8;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #c0c0c0;
+            border: 1px solid;
+            border-color: #ffffff #000000 #000000 #ffffff;
+        }
+
+        a {
+            color: #0054e3;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .gallery-item {
+            background: #f0f0f0;
+            border: 1px solid #808080;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .gallery-item:hover {
+            background: #e0e0e0;
+        }
+
+        .gallery-item-icon {
+            font-size: 48px;
+            margin-bottom: 8px;
+        }
+
+        .gallery-item-label {
+            font-size: 11px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .skill-category {
+            background: #f5f5f5;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-left: 4px solid #0054e3;
+        }
+
+        .skill-category h3 {
+            font-size: 12px;
+            color: #0054e3;
+            margin-bottom: 8px;
+        }
+
+        .skill-category p {
+            font-size: 11px;
+            line-height: 1.5;
+        }
+
+        /* Solitaire */
+        .solitaire-container {
+            background: #0a7d3d;
+            padding: 20px;
+            min-height: 400px;
+        }
+
+        .solitaire-message {
+            text-align: center;
+            color: white;
+            font-size: 14px;
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
+        }
+
+        .solitaire-btn {
+            background: linear-gradient(to bottom, #4a90e2 0%, #357abd 100%);
+            color: white;
+            border: 1px solid;
+            border-color: #7ab8f5 #2868a8 #2868a8 #7ab8f5;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 11px;
+            font-weight: bold;
+            border-radius: 3px;
+            margin: 5px;
+        }
+
+        .solitaire-btn:hover {
+            background: linear-gradient(to bottom, #5a9ff0 0%, #4685c4 100%);
+        }
+
+        /* Email Form */
+        .email-form {
+            max-width: 500px;
+            margin: 20px auto;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 11px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 5px;
+            border: 2px solid;
+            border-color: #808080 #ffffff #ffffff #808080;
+            font-family: 'Tahoma', sans-serif;
+            font-size: 11px;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(to bottom, #4a90e2 0%, #357abd 100%);
+            color: white;
+            border: 1px solid;
+            border-color: #7ab8f5 #2868a8 #2868a8 #7ab8f5;
+            padding: 8px 20px;
+            cursor: pointer;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(to bottom, #5a9ff0 0%, #4685c4 100%);
+        }
+    </style>
 </head>
 <body>
-    <div class="desktop" id="desktop">
-        <!-- Icons will be dynamically loaded -->
+    <div class="desktop">
+        <!-- Main Profile Window (Always Visible) -->
+        <div class="main-window">
+            <div class="title-bar">
+                <div class="title-bar-text">
+                    <span>👤</span>
+                    <span>Samwel Waweru - Professional Portfolio</span>
+                </div>
+                <div class="title-bar-controls">
+                    <button disabled>_</button>
+                    <button disabled>□</button>
+                    <button disabled>×</button>
+                </div>
+            </div>
+            <div class="window-content">
+                <!-- Profile Header -->
+                <div class="profile-header">
+                    <div class="profile-image-container">
+                        <div class="profile-frame">
+                            <div class="profile-frame-inner">
+                                <img src="assets/samwel2.jpg" alt="Samwel Waweru" class="profile-image" width="150px" height="200px">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="profile-info">
+                        <div class="profile-name">Samwel Waweru</div>
+                        <div class="profile-title">Senior AI Engineer | ML Researcher | Robotics Specialist</div>
+                        <p style="font-size: 11px; line-height: 1.6; margin-top: 10px;">
+                            Senior AI Engineer with over 4 years of hands-on experience building production-grade, cloud-native AI and automation systems. Highly skilled in Python 3, REST API design, and distributed backend architectures, with a proven track record deploying GenAI and on-device ML solutions.
+                        </p>
+                        <div class="profile-contact">
+                            <div>
+                                <i class="fa-solid fa-envelope"></i>
+                                <span>samuelwawerukamau01@gmail.com</span>
+                            </div>
 
+                            <div>
+                                <i class="fa-solid fa-phone"></i>
+                                <span>+254 792 022 398</span>
+                            </div>
 
+                            <div>
+                                <i class="fa-brands fa-github"></i>
+                                <a href="https://github.com/samkamau81" target="_blank">
+                                    github.com/samkamau81
+                                </a>
+                            </div>
+
+                            <div>
+                                <i class="fa-brands fa-linkedin"></i>
+                                <a href="https://linkedin.com/in/samuelwaweru2001" target="_blank">
+                                    linkedin.com/in/samuelwaweru2001
+                                </a>
+                            </div>
+
+                            <div>
+                                <i class="fa-solid fa-location-dot"></i>
+                                <span>Nairobi, Kenya</span>
+                            </div>
+
+                            <div>
+                                <i class="fa-solid fa-certificate"></i>
+                                <span>Oracle Cloud Certified</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Professional Experience -->
+                <div class="section">
+                    <div class="section-title">💼 Professional Experience</div>
+                    
+                    <div class="job-item">
+                        <div class="job-header">Machine Learning Engineer (Kaggle BIPOC)</div>
+                        <div class="job-meta">Kaggle USA, California (Remote) | Dec 2022 – Present</div>
+                        <div class="job-description">
+                            <ul>
+                                <li>Developed production-grade LLM integrations including RAG-powered analytics engine using FAISS and Pinecone</li>
+                                <li>Built AI agent development platform enabling secure deployment of multi-agent LLM workflows to embedded IoT systems</li>
+                                <li>Fine-tuned Gemma-7B using LoRA, PEFT, and quantization for cybersecurity Q&A</li>
+                                <li>Collaborated with globally distributed engineering teams on LLMOps and secure model integration</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="job-item">
+                        <div class="job-header">AI Solutions Expert</div>
+                        <div class="job-meta">EdTech Hub, Ministry of Education — Consultant, Nairobi, Kenya | Oct 2025 – Present</div>
+                        <div class="job-description">
+                            <ul>
+                                <li>Engineered AI-powered backend services for education platforms at national scale</li>
+                                <li>Led design and deployment of secure LLM integrations ensuring compliance with governance and data protection</li>
+                                <li>Built and validated multiple proof-of-concept AI services with optimized model pipelines</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="job-item">
+                        <div class="job-header">County Coordinator/Master Trainer</div>
+                        <div class="job-meta">Raspberry Pi Foundation UK, Young Scientist Kenya | Apr 2024 – Present</div>
+                        <div class="job-description">
+                            <ul>
+                                <li>Led establishing 10 Code Clubs training over 250 students in Python and AI development</li>
+                                <li>Trained and evaluated mentors on pedagogy and project design</li>
+                                <li>Acted as liaison between government, educators and nonprofits</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Research Experience -->
+                <div class="section">
+                    <div class="section-title">📚 Research & Publications</div>
+                    
+                    <div class="job-item">
+                        <div class="job-header">Edge-Optimized YOLOv11-Based Real-Time Weed Detection for Autonomous Precision Agriculture</div>
+                        <div class="job-meta">IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS 2025) | Hangzhou, China</div>
+                        <div class="job-description">
+                            <p><strong>Authors:</strong> Samwel Waweru (Lead Author), Ray Njoroge</p>
+                            <p>Novel approach to real-time weed detection using optimized YOLOv11 models on resource-constrained edge devices for precision agriculture applications.</p>
+                        </div>
+                    </div>
+
+                    <div class="job-item">
+                        <div class="job-header">Biodiversity Conservation Protocol in Meru County for Fire Prevention using Drone Technology</div>
+                        <div class="job-meta">Forum for Global Challenges, University of Birmingham | May 2022 (Highlighted)</div>
+                        <div class="job-description">
+                            <p><strong>Authors:</strong> Jackson Mutembei, Samwel Waweru (Contributor)</p>
+                            <p>Drone-based monitoring system for early fire detection and biodiversity conservation in Kenyan wildlife areas.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Education -->
+                <div class="section">
+                    <div class="section-title">🎓 Education</div>
+                    
+                    <div class="job-item">
+                        <div class="job-header">B.Sc. Mechatronic Engineering, Robotics - Honors (2:1)</div>
+                        <div class="job-meta">Jomo Kenyatta University of Agriculture and Technology, Nairobi, Kenya</div>
+                        <div class="job-description">
+                            <ul>
+                                <li><strong>🏆 Capstone Project (Rank 1/18):</strong> Delta Laser-Weeding Robot with computer vision and YOLOv11</li>
+                                <li>Coursework: Calculus 1-4, Advanced Robotics, Differential Equations, Computer Science</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="job-item">
+                        <div class="job-header">Summer School - Machine Learning, Big Data</div>
+                        <div class="job-meta">The University of Manchester, United Kingdom | Aug 2021</div>
+                        <div class="job-description">
+                            <ul>
+                                <li>Built NLP models using Hugging Face Transformers (BERT) for sentiment analysis</li>
+                                <li><strong>🏅 Hackathon Winner:</strong> "Effects of COVID-19 vis-à-vis Mental Health"</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certifications & Affiliations -->
+                <div class="section">
+                    <div class="section-title">🏆 Certifications & Affiliations</div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                        <div class="job-item">
+                            <div class="job-header">Certifications</div>
+                            <div class="job-description">
+                                <p><strong>Oracle Cloud Infrastructure Certified Data Science Professional</strong><br>
+                                Credential ID: OC4504520</p>
+                            </div>
+                        </div>
+                        <div class="job-item">
+                            <div class="job-header">Affiliations</div>
+                            <div class="job-description">
+                                <ul style="margin-left: 15px;">
+                                    <li>IEEE Robotics and Automation</li>
+                                    <li>Raspberry Pi Foundation UK</li>
+                                    <li>Kenya Karate Federation</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <!-- Windows will be dynamically loaded -->
-    <div id="windows-container"></div>
+    <!-- Secondary Windows (Hidden by default) -->
+    
+    <!-- Projects/Skills Window -->
+    <div class="secondary-window" id="projects-window" style="left: 100px; top: 60px; width: 800px; height: 600px;">
+        <div class="title-bar">
+            <div class="title-bar-text">
+                <span>🚀</span>
+                <span>Projects & Skills</span>
+            </div>
+            <div class="title-bar-controls">
+                <button onclick="minimizeWindow('projects-window')">_</button>
+                <button onclick="closeWindow('projects-window')">×</button>
+            </div>
+        </div>
+        <div class="window-content">
+            <div class="section-title">🚀 Featured Projects</div>
+            
+            <div class="job-item">
+                <div class="job-header">FinGPT — Financial Language Model System</div>
+                <div class="job-description">
+                    <p>Backend service for domain-specific financial LLM using FastAPI with well-typed Pydantic models, rate management, and caching.</p>
+                    <p><strong>Tech:</strong> FastAPI, Pydantic, Python, REST API Design, Async I/O</p>
+                </div>
+            </div>
 
-    <!-- Start Menu -->
-    <div class="start-menu" id="startMenu">
-        <div class="start-menu-header">Samwel Waweru</div>
-        <div class="start-menu-items" id="startMenuItems">
-            <!-- Menu items will be dynamically loaded -->
+            <div class="job-item">
+                <div class="job-header">Delta Laser Weeding Robot</div>
+                <div class="job-description">
+                    <p>Computer vision inference service with YOLOv11 on Raspberry Pi 4, optimized using INT8 quantization.</p>
+                    <p><strong>Tech:</strong> Python, YOLOv11, TensorFlow, OpenCV, Raspberry Pi</p>
+                </div>
+            </div>
+
+            <div class="job-item">
+                <div class="job-header">EmbedMind Studio</div>
+                <div class="job-description">
+                    <p>Platform for deploying LLM-powered agents on embedded devices with Docker-based CI/CD.</p>
+                    <p><strong>Tech:</strong> Python, C++, Docker, Gemini/OpenAI APIs, ESP8266</p>
+                </div>
+            </div>
+
+            <div class="section-title" style="margin-top: 30px;">🛠️ Technical Skills</div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Programming & Tools</h3>
+                    <p>Python, JavaScript, C++, FastAPI, REST API, SQL, PostgreSQL, Docker, Kubernetes, Git, Linux</p>
+                </div>
+                <div class="skill-category">
+                    <h3>AI & Machine Learning</h3>
+                    <p>TensorFlow, PyTorch, Hugging Face, LangChain, LLM Integration, Fine-tuning, RAG, Computer Vision</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Backend & Systems</h3>
+                    <p>Microservices, API Design, Async I/O, Debugging, Monitoring, Distributed Systems</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Embedded & IoT</h3>
+                    <p>Raspberry Pi, ESP8266, Arduino, Edge Computing, Real-time Systems</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Email Window -->
+    <div class="secondary-window" id="email-window" style="left: 150px; top: 80px; width: 600px; height: 500px;">
+        <div class="title-bar">
+            <div class="title-bar-text">
+                <span>📧</span>
+                <span>Email Me</span>
+            </div>
+            <div class="title-bar-controls">
+                <button onclick="minimizeWindow('email-window')">_</button>
+                <button onclick="closeWindow('email-window')">×</button>
+            </div>
+        </div>
+        <div class="window-content">
+            <h2 style="color: #0054e3; margin-bottom: 20px;">Get in Touch</h2>
+            <div class="email-form">
+                <div class="form-group">
+                    <label>Your Name:</label>
+                    <input type="text" id="sender-name" placeholder="John Doe">
+                </div>
+                <div class="form-group">
+                    <label>Your Email:</label>
+                    <input type="email" id="sender-email" placeholder="john@example.com">
+                </div>
+                <div class="form-group">
+                    <label>Subject:</label>
+                    <input type="text" id="email-subject" placeholder="Project Inquiry">
+                </div>
+                <div class="form-group">
+                    <label>Message:</label>
+                    <textarea id="email-message" placeholder="Your message here..."></textarea>
+                </div>
+                <button class="btn-primary" onclick="sendEmail()">Send Email</button>
+            </div>
+            
+            <div style="margin-top: 30px; padding: 15px; background: #f5f5f5; border-left: 4px solid #0054e3;">
+                <h3 style="font-size: 12px; color: #0054e3; margin-bottom: 10px;">Direct Contact</h3>
+                <p style="font-size: 11px;">📧 Email: <a href="mailto:samuelwawerukamau01@gmail.com">samuelwawerukamau01@gmail.com</a></p>
+                <p style="font-size: 11px;">📞 Phone: <a href="tel:+254792022398">+254 792 022 398</a></p>
+                <p style="font-size: 11px;">💻 GitHub: <a href="https://github.com/samuelwaweru2001" target="_blank">github.com/samuelwaweru2001</a></p>
+                <p style="font-size: 11px;">🔗 LinkedIn: <a href="https://linkedin.com/in/samkamau81" target="_blank">linkedin.com/in/samkamau81</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gallery Window -->
+    <div class="secondary-window" id="gallery-window" style="left: 120px; top: 70px; width: 750px; height: 550px;">
+        <div class="title-bar">
+            <div class="title-bar-text">
+                <span>🖼️</span>
+                <span>Project Gallery</span>
+            </div>
+            <div class="title-bar-controls">
+                <button onclick="minimizeWindow('gallery-window')">_</button>
+                <button onclick="closeWindow('gallery-window')">×</button>
+            </div>
+        </div>
+        <div class="window-content">
+            <h2 style="color: #0054e3; margin-bottom: 15px;">Visual Showcase</h2>
+            <p style="font-size: 11px; margin-bottom: 20px;">Explore my work in AI, Robotics, and Software Engineering</p>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item" onclick="alert('Delta Robot: Computer vision-powered weeding robot with YOLOv11')">
+                    <div class="gallery-item-icon">🤖</div>
+                    <div class="gallery-item-label">Delta Laser Robot</div>
+                </div>
+                
+                <div class="gallery-item" onclick="alert('FinGPT: Financial LLM with FastAPI backend')">
+                    <div class="gallery-item-icon">💰</div>
+                    <div class="gallery-item-label">FinGPT System</div>
+                </div>
+                
+                <div class="gallery-item" onclick="alert('EmbedMind: LLM agents on embedded devices')">
+                    <div class="gallery-item-icon">🧠</div>
+                    <div class="gallery-item-label">EmbedMind Studio</div>
+                </div>
+                
+                <div class="gallery-item" onclick="alert('MentalMuse: NLP mental health analysis')">
+                    <div class="gallery-item-icon">💭</div>
+                    <div class="gallery-item-label">MentalMuse</div>
+                </div>
+                
+                <div class="gallery-item" onclick="alert('Kilimo-AI: Smart irrigation with LLMs')">
+                    <div class="gallery-item-icon">🌱</div>
+                    <div class="gallery-item-label">Kilimo-AI</div>
+                </div>
+                
+                <div class="gallery-item" onclick="alert('Code Clubs: Training 250+ students')">
+                    <div class="gallery-item-icon">👨‍🏫</div>
+                    <div class="gallery-item-label">Education Work</div>
+                </div>
+                
+                <div class="gallery-item" onclick="alert('Conference Papers: IEEE IROS 2025')">
+                    <div class="gallery-item-icon">📚</div>
+                    <div class="gallery-item-label">Research Papers</div>
+                </div>
+                
+                <div class="gallery-item" onclick="alert('RAG Systems: FAISS & Pinecone integration')">
+                    <div class="gallery-item-icon">🔍</div>
+                    <div class="gallery-item-label">RAG Analytics</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Solitaire Window -->
+    <div class="secondary-window" id="solitaire-window" style="left: 180px; top: 90px; width: 600px; height: 500px;">
+        <div class="title-bar">
+            <div class="title-bar-text">
+                <span>🎴</span>
+                <span>Solitaire</span>
+            </div>
+            <div class="title-bar-controls">
+                <button onclick="minimizeWindow('solitaire-window')">_</button>
+                <button onclick="closeWindow('solitaire-window')">×</button>
+            </div>
+        </div>
+        <div class="window-content">
+            <div class="solitaire-container">
+                <div class="solitaire-message">
+                    🎴 Classic Solitaire - Windows XP Style<br>
+                    Take a break and enjoy a quick game!
+                </div>
+                <div style="text-align: center; margin: 40px 0;">
+                    <button class="solitaire-btn" onclick="startSolitaire()">New Game</button>
+                    <button class="solitaire-btn" onclick="alert('Hint: Look for Aces to start building foundations!')">Hint</button>
+                </div>
+                <div class="solitaire-message" style="font-size: 12px;">
+                    🃏 Drag cards to build sequences<br>
+                    ♠️ ♥️ ♣️ ♦️
+                </div>
+            </div>
         </div>
     </div>
 
     <!-- Taskbar -->
     <div class="taskbar">
-        <button class="start-button" id="startButton">
-            <img src="assets/windows-xp-icon.png" alt="Windows" class="start-icon">
-            <span>start</span>
-        </button>
-
-        <div class="taskbar-items" id="taskbarItems"></div>
+        <button class="start-button" id="startButton"></button>
+        <div class="taskbar-title">Professional Portfolio</div>
         <div class="system-tray">
+            <span>🔊</span>
             <span class="clock" id="clock">12:00 PM</span>
         </div>
     </div>
 
-    <!-- JavaScript -->
-    <script src="js/utils.js"></script>
-    <script src="js/window-manager.js"></script>
-    <script src="js/taskbar.js"></script>
-    <script src="js/desktop.js"></script>
+    <!-- Start Menu -->
+    <div class="start-menu" id="startMenu">
+        <div class="start-menu-header">
+            <div class="start-menu-header-name">Samwel Waweru</div>
+            <div class="start-menu-header-title">AI Engineer Portfolio</div>
+        </div>
+        <div class="start-menu-separator"></div>
+        <div class="start-menu-items">
+            <div class="start-menu-item" onclick="openWindow('projects-window')">
+                <span class="menu-icon">🚀</span>
+                <span>Projects & Skills</span>
+            </div>
+            <div class="start-menu-item" onclick="openWindow('email-window')">
+                <span class="menu-icon">📧</span>
+                <span>Email Me</span>
+            </div>
+            <div class="start-menu-item" onclick="openWindow('gallery-window')">
+                <span class="menu-icon">🖼️</span>
+                <span>Gallery</span>
+            </div>
+            <div class="start-menu-item" onclick="openWindow('solitaire-window')">
+                <span class="menu-icon">🎴</span>
+                <span>Solitaire</span>
+            </div>
+        </div>
+        <div class="start-menu-separator"></div>
+        <div class="start-menu-item logout-item" onclick="logout()">
+            <span class="menu-icon">🔌</span>
+            <span>Log Off</span>
+        </div>
+    </div>
+
+    <script>
+        // Clock
+        function updateClock() {
+            const now = new Date();
+            const hours = now.getHours() % 12 || 12;
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const ampm = now.getHours() >= 12 ? 'PM' : 'AM';
+            document.getElementById('clock').textContent = `${hours}:${minutes} ${ampm}`;
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        // Start Menu
+        const startButton = document.getElementById('startButton');
+        const startMenu = document.getElementById('startMenu');
+
+        startButton.addEventListener('click', () => {
+            startMenu.classList.toggle('active');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.start-button') && !e.target.closest('.start-menu')) {
+                startMenu.classList.remove('active');
+            }
+        });
+
+        // Window Management
+        function openWindow(windowId) {
+            document.getElementById(windowId).classList.add('active');
+            startMenu.classList.remove('active');
+        }
+
+        function closeWindow(windowId) {
+            document.getElementById(windowId).classList.remove('active');
+        }
+
+        function minimizeWindow(windowId) {
+            document.getElementById(windowId).classList.remove('active');
+        }
+
+        // Email Function
+        function sendEmail() {
+            const name = document.getElementById('sender-name').value;
+            const email = document.getElementById('sender-email').value;
+            const subject = document.getElementById('email-subject').value;
+            const message = document.getElementById('email-message').value;
+
+            if (!name || !email || !subject || !message) {
+                alert('Please fill in all fields!');
+                return;
+            }
+
+            // Create mailto link
+            const mailtoLink = `mailto:samuelwawerukamau01@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`From: ${name} (${email})\n\n${message}`)}`;
+            window.location.href = mailtoLink;
+
+            alert('Opening your email client...');
+        }
+
+        // Solitaire
+        function startSolitaire() {
+            alert('🎴 New game started! Deal the cards and start playing!');
+        }
+
+        // Logout
+        function logout() {
+            if (confirm('Are you sure you want to log off?')) {
+                document.body.style.transition = 'opacity 1s';
+                document.body.style.opacity = '0';
+                
+                setTimeout(() => {
+                    document.body.innerHTML = `
+                        <div style="display: flex; align-items: center; justify-content: center; height: 100vh; background: #0a58ca; color: white; font-size: 24px; flex-direction: column;">
+                            <div style="margin-bottom: 20px;">🪟</div>
+                            <div>Windows is shutting down...</div>
+                            <div style="margin-top: 20px; font-size: 14px;">Thank you for visiting!</div>
+                        </div>
+                    `;
+                    document.body.style.opacity = '1';
+                    
+                    setTimeout(() => {
+                        location.reload();
+                    }, 3000);
+                }, 1000);
+            }
+        }
+    </script>
 </body>
 </html>
+

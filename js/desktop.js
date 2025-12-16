@@ -1,75 +1,41 @@
-// Desktop initialization
-const Desktop = {
-    init: async function() {
-        const data = await Utils.loadJSON('data/portfolio-data.json');
-        if (!data) return;
+// Email Function
+function sendEmail() {
+    const name = document.getElementById('sender-name')?.value;
+    const email = document.getElementById('sender-email')?.value;
+    const subject = document.getElementById('email-subject')?.value;
+    const message = document.getElementById('email-message')?.value;
 
-        this.createIcons(data.icons);
-        this.createStartMenu(data.icons);
-        this.setupIconHandlers();
-    },
-
-    createIcons: function(iconsData) {
-        const desktop = document.getElementById('desktop');
-        
-        iconsData.forEach(iconData => {
-            const iconHTML = `
-                <div class="icon" data-window="${iconData.windowId}">
-                    <div class="icon-image">${iconData.icon}</div>
-                    <div class="icon-label">${iconData.label}</div>
-                </div>
-            `;
-            desktop.insertAdjacentHTML('beforeend', iconHTML);
-        });
-    },
-
-    createStartMenu: function(iconsData) {
-        const startMenuItems = document.getElementById('startMenuItems');
-        
-        iconsData.forEach(iconData => {
-            const itemHTML = `
-                <div class="start-menu-item" onclick="Desktop.openFromMenu('${iconData.windowId}')">
-                    ${iconData.label}
-                </div>
-            `;
-            startMenuItems.insertAdjacentHTML('beforeend', itemHTML);
-        });
-    },
-
-    setupIconHandlers: function() {
-        document.querySelectorAll('.icon').forEach(icon => {
-            icon.addEventListener('click', function() {
-                document.querySelectorAll('.icon').forEach(i => i.classList.remove('selected'));
-                this.classList.add('selected');
-            });
-            
-            icon.addEventListener('dblclick', function() {
-                const windowId = this.dataset.window;
-                WindowManager.open(windowId);
-            });
-        });
-    },
-
-    openFromMenu: function(windowId) {
-        WindowManager.open(windowId);
-        document.getElementById('startMenu').classList.remove('active');
+    if (!name || !email || !subject || !message) {
+        alert('Please fill in all fields!');
+        return;
     }
-};
 
-// Initialize everything when DOM is ready
-document.addEventListener('DOMContentLoaded', async () => {
-    await WindowManager.init();
-    await Desktop.init();
-    Taskbar.init();
-});
+    // Create mailto link
+    const mailtoLink = `mailto:samuelwawerukamau01@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`From: ${name} (${email})\n\n${message}`)}`;
+    window.location.href = mailtoLink;
 
-document.addEventListener('DOMContentLoaded', () => {
-    const frame = document.getElementById('photoFrame');
-    const title = document.getElementById('photoFrameTitle');
-    const toggle = frame.querySelector('.xp-toggle');
+    alert('Opening your email client...');
+}
 
-    title.addEventListener('click', () => {
-        frame.classList.toggle('collapsed');
-        toggle.textContent = frame.classList.contains('collapsed') ? '▢' : '▁';
-    });
-});
+// Logout
+function logout() {
+    if (confirm('Are you sure you want to log off?')) {
+        document.body.style.transition = 'opacity 1s';
+        document.body.style.opacity = '0';
+        
+        setTimeout(() => {
+            document.body.innerHTML = `
+                <div style="display: flex; align-items: center; justify-content: center; height: 100vh; background: #0a58ca; color: white; font-size: 24px; flex-direction: column;">
+                    <div style="margin-bottom: 20px;">🪟</div>
+                    <div>Windows is shutting down...</div>
+                    <div style="margin-top: 20px; font-size: 14px;">Thank you for visiting!</div>
+                </div>
+            `;
+            document.body.style.opacity = '1';
+            
+            setTimeout(() => {
+                location.reload();
+            }, 3000);
+        }, 1000);
+    }
+}

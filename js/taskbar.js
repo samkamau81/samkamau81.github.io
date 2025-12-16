@@ -1,25 +1,25 @@
-// Taskbar management
-const Taskbar = {
-    init: function() {
-        this.setupClock();
-        this.setupStartButton();
-        this.update();
-    },
+// Clock
+function updateClock() {
+    const now = new Date();
+    const hours = now.getHours() % 12 || 12;
+    const minutes = now.getMinutes().toString().padStart(2, '0');
+    const ampm = now.getHours() >= 12 ? 'PM' : 'AM';
+    const clockElement = document.getElementById('clock');
+    if (clockElement) {
+        clockElement.textContent = `${hours}:${minutes} ${ampm}`;
+    }
+}
+setInterval(updateClock, 1000);
+updateClock();
 
-    setupClock: function() {
-        const clockElement = document.getElementById('clock');
-        const updateClock = () => {
-            clockElement.textContent = Utils.formatTime();
-        };
-        setInterval(updateClock, 1000);
-        updateClock();
-    },
+// Start Menu
+document.addEventListener('DOMContentLoaded', () => {
+    const startButton = document.getElementById('startButton');
+    const startMenu = document.getElementById('startMenu');
 
-    setupStartButton: function() {
-        const startButton = document.getElementById('startButton');
-        const startMenu = document.getElementById('startMenu');
-        
-        startButton.addEventListener('click', () => {
+    if (startButton && startMenu) {
+        startButton.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevent the document listener from closing it immediately
             startMenu.classList.toggle('active');
         });
 
@@ -28,34 +28,5 @@ const Taskbar = {
                 startMenu.classList.remove('active');
             }
         });
-    },
-
-    update: function() {
-        const taskbarItems = document.getElementById('taskbarItems');
-        taskbarItems.innerHTML = '';
-        
-        WindowManager.activeWindows.forEach(windowId => {
-            const win = document.getElementById(windowId);
-            if (!win) return;
-            
-            const title = win.querySelector('.title-bar-text span:last-child').textContent;
-            const item = document.createElement('div');
-            item.className = 'taskbar-item';
-            
-            if (win.classList.contains('active')) {
-                item.classList.add('active');
-            }
-            
-            item.textContent = title;
-            item.onclick = () => {
-                if (win.classList.contains('active')) {
-                    WindowManager.minimize(windowId);
-                } else {
-                    win.classList.add('active');
-                }
-            };
-            
-            taskbarItems.appendChild(item);
-        });
     }
-};
+});
