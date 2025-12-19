@@ -62,7 +62,8 @@
 
 .clock {
     color: white;
-    font-size: 11px;
+    font-family: 'Inter', 'Roboto', 'Segoe UI', sans-serif;
+    font-size: 13px;
     font-weight: bold;
 }
 
@@ -113,7 +114,9 @@
 .start-menu-item {
     padding: 10px 15px 10px 50px;
     cursor: pointer;
-    font-size: 11px;
+    font-family: 'Inter', 'Roboto', 'Segoe UI', sans-serif;
+    font-size: 13px;
+    line-height: 1.6;
     position: relative;
     display: flex;
     align-items: center;

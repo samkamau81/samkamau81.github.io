@@ -133,8 +133,8 @@
 }
 
 .profile-image {
-    width: 180px;
-    height: 220px;
+    width: 190px;
+    height: 250px;
     object-fit: cover;
     display: block;
 }
@@ -241,8 +241,32 @@
     }
 }
 .menu-icon-img {
-    width: 30px;
-    height: 30px;
-    margin-right: 10px;
+    width: 5%;
+    height: 5%;
+    margin-right: 2%;
     vertical-align: middle;
+}
+/* XP-style icon tab */
+.taskbar-icon-tab {
+    width: 100%;
+    height: 39px;
+    background: rgba(255, 255, 255, 0.2); /* semi-transparent */
+    border: 1px solid rgba(0,0,0,0.4);
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.4), inset 0 -1px 2px rgba(0,0,0,0.3);
+}
+.taskbar-title {
+    display: flex;
+    align-items: center;
+    font-size: 11px;
+    font-weight: bold;
+    color: white;
+    gap: 6px;
+}
+.taskbar-icon-tab img {
+    width: 100%;
+    height: 100%;
 }

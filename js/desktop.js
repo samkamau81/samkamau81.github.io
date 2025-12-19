@@ -26,7 +26,9 @@ function logout() {
         setTimeout(() => {
             document.body.innerHTML = `
                 <div style="display: flex; align-items: center; justify-content: center; height: 100vh; background: #0a58ca; color: white; font-size: 24px; flex-direction: column;">
-                    <div style="margin-bottom: 20px;">🪟</div>
+                    <div style="margin-bottom: 20px;">
+                        <img src="close.png" class="menu-icon-img">
+                    </div>
                     <div>Windows is shutting down...</div>
                     <div style="margin-top: 20px; font-size: 14px;">Thank you for visiting!</div>
                 </div>
