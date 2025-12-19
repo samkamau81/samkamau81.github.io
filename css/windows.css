@@ -3,8 +3,8 @@
     position: absolute;
     top: 5%;
     left: 5%;
-    width: 90%;
-    height: 90%;
+    width: 94%;
+    height: 94%;
     background: #ece9d8;
     border: 2px solid;
     border-color: #0054e3 #0054e3 #0054e3 #0054e3;
@@ -35,17 +35,25 @@
 
 
 .secondary-window {
-    position: fixed;
+    position: absolute;
     background: #ece9d8;
     border: 2px solid #0054e3;
-    box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
     display: none;
-    z-index: 100;
+    z-index: 10;
+    opacity: 1;
+    transition: opacity 0.15s ease;
+    position: absolute;
+    border: 2px solid;
+    border-color: #ffffff #000000 #000000 #ffffff;
+    box-shadow: 4px 4px 10px rgba(0,0,0,0.3);
 }
 
+
 .secondary-window.active {
-    display: flex;
+    display: block;
     flex-direction: column;
+    opacity: 1;
+
 }
 
 .title-bar {

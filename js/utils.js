@@ -1,8 +1,5 @@
 // Utility functions
 const Utils = {
-    startSolitaire: function() {
-        alert('🎴 New game started! Deal the cards and start playing!');
-    },
 
     logout: function() {
         if (confirm('Are you sure you want to log off?')) {

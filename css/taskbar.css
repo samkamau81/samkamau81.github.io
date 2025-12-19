@@ -35,9 +35,10 @@
 }
 
 .start-button:active {
-    filter: brightness(0.95);
+    filter: brightness(0.9);
     transform: translateY(1px);
 }
+
 
 .taskbar-title {
     color: white;

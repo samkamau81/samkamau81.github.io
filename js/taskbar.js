@@ -12,21 +12,34 @@ function updateClock() {
 setInterval(updateClock, 1000);
 updateClock();
 
-// Start Menu
-document.addEventListener('DOMContentLoaded', () => {
-    const startButton = document.getElementById('startButton');
-    const startMenu = document.getElementById('startMenu');
 
-    if (startButton && startMenu) {
+// Start menu functionality
+const StartMenu = {
+    init() {
+        const startButton = document.getElementById('startButton');
+        const startMenu = document.getElementById('startMenu');
+
+        if (!startButton || !startMenu) return;
+
+        // Toggle start menu
         startButton.addEventListener('click', (e) => {
-            e.stopPropagation(); // Prevent the document listener from closing it immediately
+            e.stopPropagation(); // 🔑 KEY FIX
             startMenu.classList.toggle('active');
         });
 
-        document.addEventListener('click', (e) => {
-            if (!e.target.closest('.start-button') && !e.target.closest('.start-menu')) {
-                startMenu.classList.remove('active');
-            }
+        // Prevent clicks inside menu from closing it
+        startMenu.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+
+        // Close start menu when clicking outside
+        document.addEventListener('click', () => {
+            startMenu.classList.remove('active');
         });
     }
+};
+
+// Initialize when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+    StartMenu.init();
 });
