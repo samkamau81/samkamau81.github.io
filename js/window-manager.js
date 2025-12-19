@@ -8,6 +8,11 @@ const WindowManager = {
 
         win.classList.add('active');
         win.style.zIndex = ++topZIndex;
+
+        // Center after render
+        requestAnimationFrame(() => {
+            centerWindow(win);
+        });
     },
 
     close(id) {
@@ -29,6 +34,18 @@ const WindowManager = {
     }
 };
 
+/* Center window relative to viewport */
+function centerWindow(win) {
+    const viewportWidth = window.innerWidth;
+    const viewportHeight = window.innerHeight;
+
+    const winWidth = win.offsetWidth;
+    const winHeight = win.offsetHeight;
+
+    win.style.left = `${Math.max(0, (viewportWidth - winWidth) / 2)}px`;
+    win.style.top = `${Math.max(0, (viewportHeight - winHeight) / 2)}px`;
+}
+
 /* Click to focus */
 document.addEventListener('mousedown', (e) => {
     const win = e.target.closest('.secondary-window');
@@ -37,7 +54,7 @@ document.addEventListener('mousedown', (e) => {
     }
 });
 
-/* Drag windows */
+/* Drag windows by title bar */
 document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.secondary-window .title-bar')
         .forEach(bar => {
@@ -66,7 +83,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 });
 
-/* Expose globally for HTML buttons */
+/* Re-center active windows on resize / orientation change */
+window.addEventListener('resize', () => {
+    document.querySelectorAll('.secondary-window.active')
+        .forEach(win => centerWindow(win));
+});
+
+/* Expose globally for HTML */
 window.openWindow = (id) => WindowManager.open(id);
 window.closeWindow = (id) => WindowManager.close(id);
 window.minimizeWindow = (id) => WindowManager.minimize(id);

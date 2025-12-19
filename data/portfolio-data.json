@@ -13,12 +13,6 @@
     "windowId": "gallery-window"
 },
 {
-    "id": "solitaire",
-    "icon": "🎴",
-    "label": "Solitaire",
-    "windowId": "solitaire-window"
-},
-{
     "id": "about",
     "icon": "<img src='assets/about-icon.jpg' style='width: 32px; height: 32px;'>",
     "label": "About Me",
@@ -75,14 +69,6 @@
     "position": { "left": 140, "top": 90 },
     "size": { "width": 600, "height": 500 },
     "contentFile": "components/solitaire.html"
-},
-{
-    "id": "about-window",
-    "title": "About Me",
-    "icon": "<img src='assets/about-icon.jpg' style='width: 32px; height: 32px;'>",
-    "position": { "left": 160, "top": 110 },
-    "size": { "width": 600, "height": 400 },
-    "contentFile": "components/about.html"
 },
 {
     "id": "experience-window",
