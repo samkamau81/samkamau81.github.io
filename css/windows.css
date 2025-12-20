@@ -37,6 +37,18 @@
     max-height: 90vh;
     min-width: 18rem;
     min-height: 12rem;
+    position: absolute;
+    display: none;
+}
+
+.secondary-window.active {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    background: #f7f2d7;
+    z-index: 1100;
+    box-shadow: 0.3rem 0.3rem 1rem rgba(0,0,0,0.4);
+    
 }
 
 .title-bar-text {
@@ -163,20 +175,45 @@
     margin-right: 2vw;
 }
 
-/* XP-style icon tab */
+/* XP-style ACTIVE taskbar tab */
 .taskbar-icon-tab {
     font-size: 0.8rem;
-    width: 4rem;
+    width: 10rem;
     height: 2.4rem;
     border-radius: 0.2rem;
+
+    /* XP active gradient */
+    background: linear-gradient(
+        to bottom,
+        #3c7cf1 0%,
+        #1f4fd8 50%,
+        #163fa3 100%
+    );
+
+    border: 1px solid;
+    border-color: #7aa2f7 #0b2f8f #0b2f8f #7aa2f7;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.6),
+        inset 0 -1px 2px rgba(0,0,0,0.4),
+        0 1px 0 rgba(255,255,255,0.2);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 1; /* active tabs are solid */
 }
 
+/* Text next to icon */
 .taskbar-title {
     font-size: 0.7rem;
     gap: 0.4rem;
+    color: white;
 }
 
+/* Icon inside tab */
 .taskbar-icon-tab img {
-    width: 100%;
-    height: 100%;
+    width: 1.2rem;
+    height: 1.2rem;
 }
