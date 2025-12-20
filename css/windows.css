@@ -27,7 +27,9 @@
 
 .title-bar {
     padding: 0.25rem 0.4rem;
-    font-size: 0.7rem;
+    font-size: 0.9rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
 }
 
 .secondary-window {
@@ -52,13 +54,19 @@
 }
 
 .title-bar-text {
+    margin-left: 0.15rem;
+    display: flex;
+    align-items: center;
     gap: 0.3rem;
+    font-size: 0.8rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
 }
 
 .title-bar-controls button {
-    width: 1.3rem;
-    height: 1.3rem;
-    font-size: 0.6rem;
+    width: 1.4rem;
+    height: 1.4rem;
+    font-size: 0.8rem;
     margin-left: 0.15rem;
 }
 
@@ -151,13 +159,12 @@
 
 .job-description {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 1rem;
+    font-size: 0.9rem;
     line-height: 1.6;
 }
 
 .job-description ul {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
     margin-left: 1.2rem;
 }
 

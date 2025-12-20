@@ -89,11 +89,13 @@
 }
 
 .start-menu-header-name {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 1.5rem;
     font-weight: bold;
 }
 
 .start-menu-header-title {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 0.75rem;
     opacity: 0.9;
     margin-top: 0.3rem;
@@ -105,14 +107,16 @@
 }
 
 .start-menu-items {
+
     padding: 0.3rem 0;
 }
 
 .start-menu-item {
     padding: 0.6rem 1rem 0.6rem 3rem;
     cursor: pointer;
-    font-family: 'Inter', 'Roboto', 'Segoe UI', sans-serif;
-    font-size: 0.8rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    font-size: 0.9rem;
     line-height: 1.6;
     position: relative;
     display: flex;
