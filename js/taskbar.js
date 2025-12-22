@@ -18,13 +18,14 @@ const StartMenu = {
     init() {
         const startButton = document.getElementById('startButton');
         const startMenu = document.getElementById('startMenu');
-
+        
         if (!startButton || !startMenu) return;
 
         // Toggle start menu
         startButton.addEventListener('click', (e) => {
-            e.stopPropagation(); // 🔑 KEY FIX
+            e.stopPropagation();
             startMenu.classList.toggle('active');
+            startButton.classList.toggle('inactive');
         });
 
         // Prevent clicks inside menu from closing it
@@ -35,19 +36,19 @@ const StartMenu = {
         // Close start menu when clicking outside
         document.addEventListener('click', () => {
             startMenu.classList.remove('active');
+            startButton.classList.add('inactive');
+        });
+
+        // Add click handlers to all menu items to close menu when clicked
+        const menuItems = startMenu.querySelectorAll('.start-menu-item');
+        menuItems.forEach(item => {
+            item.addEventListener('click', () => {
+                startMenu.classList.remove('active');
+                startButton.classList.add('inactive');
+            });
         });
     }
 };
-
-const startBtn = document.getElementById('startButton');
-startBtn.classList.add('inactive');
-startBtn.addEventListener('click', () => {
-    startBtn.classList.remove('inactive');
-});
-function closeStartMenu() {
-    document.getElementById('startMenu').classList.remove('active');
-    startBtn.classList.add('inactive');
-}
 
 // Initialize when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
