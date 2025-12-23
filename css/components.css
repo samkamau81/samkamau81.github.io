@@ -55,36 +55,38 @@
     line-height: 1.5;
 }
 
-/* Solitaire Styles */
-.solitaire-container {
-    background: #0a7d3d;
-    padding: 20px;
-    min-height: 400px;
-}
-
-.solitaire-message {
-    text-align: center;
-    color: white;
-    font-size: 14px;
-    margin: 20px 0;
-    padding: 15px;
-    background: rgba(0, 0, 0, 0.3);
-    border-radius: 5px;
-}
-
-.solitaire-btn {
-    background: linear-gradient(to bottom, #4a90e2 0%, #357abd 100%);
-    color: white;
+/* Image Viewer Styles */
+.viewer-btn {
+    background: linear-gradient(to bottom, #ffffff 0%, #e0e0e0 100%);
     border: 1px solid;
-    border-color: #7ab8f5 #2868a8 #2868a8 #7ab8f5;
-    padding: 10px 20px;
+    border-color: #fff #808080 #808080 #fff;
+    padding: 4px 8px;
     cursor: pointer;
     font-size: 11px;
-    font-weight: bold;
-    border-radius: 3px;
-    margin: 5px;
+    min-width: 32px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.solitaire-btn:hover {
-    background: linear-gradient(to bottom, #5a9ff0 0%, #4685c4 100%);
+.viewer-btn:hover {
+    background: linear-gradient(to bottom, #f0f0f0 0%, #d0d0d0 100%);
+}
+
+.viewer-btn:active {
+    background: linear-gradient(to bottom, #d0d0d0 0%, #e0e0e0 100%);
+    border-color: #808080 #fff #fff #808080;
+}
+
+#image-viewer .window-content {
+    background: #f0f0f0;
+}
+
+#viewer-image {
+    cursor: grab;
+}
+
+#viewer-image:active {
+    cursor: grabbing;
 }
