@@ -102,3 +102,76 @@
     display: flex;
     justify-content: space-between;
 }
+
+
+/* Gallery Styles - XP Themed */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 20px;
+    margin: 15px 0;
+    padding: 10px;
+}
+
+.gallery-item {
+    background: #ffffff;
+    border: 1px solid #c0c0c0;
+    padding: 8px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.gallery-item:hover {
+    background: #e8f4f8;
+    border-color: #0054e3;
+    box-shadow: 0 0 4px rgba(0, 84, 227, 0.3);
+}
+
+.gallery-item:active {
+    background: #cce8ff;
+}
+
+.gallery-thumbnail {
+    width: 100%;
+    aspect-ratio: 4/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f0f0f0;
+    border: 1px solid #d0d0d0;
+    margin-bottom: 8px;
+    overflow: hidden;
+}
+
+.gallery-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gallery-item-icon {
+    font-size: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.gallery-item-label {
+    font-size: 11px;
+    color: #000;
+    font-weight: normal;
+    margin-bottom: 3px;
+    word-break: break-word;
+    width: 100%;
+}
+
+.gallery-item-size {
+    font-size: 9px;
+    color: #666;
+}

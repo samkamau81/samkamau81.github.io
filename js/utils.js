@@ -23,3 +23,7 @@ const Utils = {
         }
     }
 };
+
+function openImageViewer(imageSrc, imageName) {
+    alert(`Opening: ${imageName}\nPath: ${imageSrc}`);
+}

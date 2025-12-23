@@ -36,7 +36,7 @@
                     <div class="profile-image-container">
                         <div class="profile-frame">
                             <div class="profile-frame-inner">
-                                <img src="assets/samwel2.jpg" alt="Samwel Waweru" class="profile-image" width="150px" height="200px">
+                                <img src="assets/samwel3.jpg" alt="Samwel Waweru" class="profile-image" width="150px" height="200px">
                             </div>
                         </div>
                     </div>
@@ -420,52 +420,77 @@
             </div>
         </div>
         <div class="window-content">
-            <h2 style="color: #0054e3; margin-bottom: 15px;">Visual Showcase</h2>
-            <p style="font-size: 11px; margin-bottom: 20px;">Explore my work in AI, Robotics, and Software Engineering</p>
-            
+            <h2 style="color: #0054e3; margin-bottom: 15px;">My Pictures</h2>
+            <p style="font-size: 11px; margin-bottom: 20px;">Enjoy the collection of my favorite photos.</p>
+
             <div class="gallery-grid">
-                <div class="gallery-item" onclick="alert('Delta Robot: Computer vision-powered weeding robot with YOLOv11')">
-                    <div class="gallery-item-icon">🤖</div>
-                    <div class="gallery-item-label">Delta Laser Robot</div>
+                <div class="gallery-item" onclick="openImageViewer('assets/karate.jpg', 'Karate.jpg')">
+                    <div class="gallery-thumbnail">
+                        <img src="assets/karate.jpg" alt="Karate">
+                    </div>
+                    <div class="gallery-item-label">Karate.jpg</div>
+                    <div class="gallery-item-size">245 KB</div>
                 </div>
                 
-                <div class="gallery-item" onclick="alert('FinGPT: Financial LLM with FastAPI backend')">
-                    <div class="gallery-item-icon">💰</div>
-                    <div class="gallery-item-label">FinGPT System</div>
+                <div class="gallery-item" onclick="openImageViewer('assets/hackathon.jpg', 'Hackathon.jpg')">
+                    <div class="gallery-thumbnail">
+                        <img src="assets/hackathon.jpg" alt="Hackathon" onerror="this.parentElement.innerHTML='<div class=\'gallery-item-icon\'>🌅</div>'">
+                    </div>
+                    <div class="gallery-item-label">Hackathon.jpg</div>
+                    <div class="gallery-item-size">312 KB</div>
                 </div>
                 
-                <div class="gallery-item" onclick="alert('EmbedMind: LLM agents on embedded devices')">
-                    <div class="gallery-item-icon">🧠</div>
-                    <div class="gallery-item-label">EmbedMind Studio</div>
+                <div class="gallery-item" onclick="openImageViewer('assets/podcast.jpg', 'Podcast.jpg')">
+                    <div class="gallery-thumbnail">
+                        <img src="assets/podcast.jpg" alt="Podcast" onerror="this.parentElement.innerHTML='<div class=\'gallery-item-icon\'>�️</div>'">
+                    </div>
+                    <div class="gallery-item-label">Podcast.jpg</div>
+                    <div class="gallery-item-size">289 KB</div>
                 </div>
                 
-                <div class="gallery-item" onclick="alert('MentalMuse: NLP mental health analysis')">
-                    <div class="gallery-item-icon">💭</div>
-                    <div class="gallery-item-label">MentalMuse</div>
+                <div class="gallery-item" onclick="openImageViewer('assets/poster_presentation.jpg', 'Poster Presentation.jpg')">
+                    <div class="gallery-thumbnail">
+                        <img src="assets/poster_presentation.jpg" alt="Poster Presentation" onerror="this.parentElement.innerHTML='<div class=\'gallery-item-icon\'>🏔️</div>'">
+                    </div>
+                    <div class="gallery-item-label">Poster Presentation.jpg</div>
+                    <div class="gallery-item-size">401 KB</div>
                 </div>
                 
-                <div class="gallery-item" onclick="alert('Kilimo-AI: Smart irrigation with LLMs')">
-                    <div class="gallery-item-icon">🌱</div>
-                    <div class="gallery-item-label">Kilimo-AI</div>
+                <div class="gallery-item" onclick="openImageViewer('assets/AI_Judge.jpg', 'AI Judge.jpg')">
+                    <div class="gallery-thumbnail">
+                        <img src="assets/AI_Judge.jpg" alt="AI Judge" onerror="this.parentElement.innerHTML='<div class=\'gallery-item-icon\'>🌳</div>'">
+                    </div>
+                    <div class="gallery-item-label">AI Judge.jpg</div>
+                    <div class="gallery-item-size">356 KB</div>
                 </div>
                 
-                <div class="gallery-item" onclick="alert('Code Clubs: Training 250+ students')">
-                    <div class="gallery-item-icon">👨‍🏫</div>
-                    <div class="gallery-item-label">Education Work</div>
+                <div class="gallery-item" onclick="openImageViewer('assets/e_bike.jpg', 'E Bike.jpg')">
+                    <div class="gallery-thumbnail">
+                        <img src="assets/e_bike.jpg" alt="E Bike" onerror="this.parentElement.innerHTML='<div class=\'gallery-item-icon\'>🌸</div>'">
+                    </div>
+                    <div class="gallery-item-label">E Bike.jpg</div>
+                    <div class="gallery-item-size">198 KB</div>
                 </div>
                 
-                <div class="gallery-item" onclick="alert('Conference Papers: IEEE IROS 2025')">
-                    <div class="gallery-item-icon">📚</div>
-                    <div class="gallery-item-label">Research Papers</div>
+                <div class="gallery-item" onclick="openImageViewer('assets/aberdare_hike.jpg', 'Aberdare Hike.jpg')">
+                    <div class="gallery-thumbnail">
+                        <img src="assets/aberdare_hike.jpg" alt="Aberdare Hike" onerror="this.parentElement.innerHTML='<div class=\'gallery-item-icon\'>🌆</div>'">
+                    </div>
+                    <div class="gallery-item-label">Aberdare Hike.jpg</div>
+                    <div class="gallery-item-size">423 KB</div>
                 </div>
                 
-                <div class="gallery-item" onclick="alert('RAG Systems: FAISS & Pinecone integration')">
-                    <div class="gallery-item-icon">🔍</div>
-                    <div class="gallery-item-label">RAG Analytics</div>
+                <div class="gallery-item" onclick="openImageViewer('assets/undergrad.jpg', 'undergrad.jpg')">
+                    <div class="gallery-thumbnail">
+                        <img src="assets/undergrad.jpg" alt="undergrad" onerror="this.parentElement.innerHTML='<div class=\'gallery-item-icon\'>🌌</div>'">
+                    </div>
+                    <div class="gallery-item-label">Undergrad.jpg</div>
+                    <div class="gallery-item-size">367 KB</div>
                 </div>
             </div>
         </div>
     </div>
+
 
 
     <!-- Taskbar -->

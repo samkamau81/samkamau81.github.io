@@ -106,10 +106,10 @@
 }
 
 .profile-image {
-    width: 16vw;
-    max-width: 190px;
+    width: 18vw;
+    max-width: 230px;
     height: auto;
-    aspect-ratio: 4.5 / 5;
+    aspect-ratio: 5 / 5.5;
 }
 
 .profile-name {
