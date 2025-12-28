@@ -95,12 +95,7 @@
     border-color: #808080 #fff #fff #808080;
 }
 
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-    gap: 15px;
-    padding: 10px;
-}
+
 
 /* Mobile landscape */
 @media (max-width: 768px) and (orientation: landscape) {
