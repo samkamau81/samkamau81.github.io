@@ -221,10 +221,8 @@
             <!-- Golden Record -->
             <div class="job-item">
                 <div class="job-header">Golden Record (National Data Integrity System)</div>
-                <br>
                 <div class="project-body">
-                    <img src="assets/MoEgovt_seal.jpg" alt="Golden Record Project" class="project-image">
-
+                    <img src="assets/MoEgovt_seal.jpg" alt="Golden Record Project" class="project-image icon">
                     <div class="job-description">
                         <p>
                             <strong>Solution:</strong><br>
@@ -232,7 +230,7 @@
                             school records in NEMIS, enabling a single trusted source of truth for education planning,
                             funding, and policy decisions.
                         </p>
-
+            
                         <p>
                             <strong>Engineering Work:</strong><br>
                             Built a data ingestion and normalization pipeline integrating learner, school, attendance,
@@ -241,13 +239,13 @@
                             for under-reporting, over-reporting, and data quality gaps, with audit trails for governance
                             and transparency.
                         </p>
-
+            
                         <p>
                             <strong>Tech Stack:</strong><br>
                             Python, Entity Resolution, Fuzzy Matching, Data Pipelines, Human-in-the-Loop Systems,
                             Synthetic Data Generation, Analytics Dashboards
                         </p>
-
+            
                         <p>
                             <strong>EdTech Hub Project:</strong>
                             <a href="https://edtechhub.org/case-study/the-engineer-who-started-with-the-data/" target="_blank">NDIS</a>
@@ -255,13 +253,12 @@
                     </div>
                 </div>
             </div>
-
             <!-- FinGPT -->
             <div class="job-item">
                 <div class="job-header">FinGPT (Financial Language Model System)</div>
                 <br>
                 <div class="project-body">
-                    <img src="assets/Fin_GPT.jpg" alt="FinGPT Project" class="project-image">
+                    <img src="assets/Fin_GPT.jpg" alt="FinGPT Project" class="project-image icon">
 
                     <div class="job-description">
                         <p>
@@ -295,7 +292,7 @@
                 <div class="job-header">Delta Laser Weeding Robot (Computer Vision & Robotics Backend)</div>
                 <br>
                 <div class="project-body">
-                    <img src="assets/delta_robot.jpg" alt="Delta Laser Robot" class="project-image">
+                    <img src="assets/delta_robot.jpg" alt="Delta Laser Robot" class="project-image icon">
 
                     <div class="job-description">
                         <p>
@@ -329,7 +326,7 @@
                 <div class="job-header">EmbedMind Studio (LLM-Powered Embedded Agents)</div>
                 <br>
                 <div class="project-body">
-                    <img src="assets/embedmind_logo.jpg" alt="EmbedMind Studio" class="project-image">
+                    <img src="assets/embedmind_logo.jpg" alt="EmbedMind Studio" class="project-image icon">
 
                     <div class="job-description">
                         <p>
@@ -363,7 +360,7 @@
                 <div class="job-header">MentalMuse (NLP Mental Health Analysis)</div>
                 <br>
                 <div class="project-body">
-                    <img src="assets/mental_muse.JPG" alt="MentalMuse Project" class="project-image">
+                    <img src="assets/mental_muse.JPG" alt="MentalMuse Project" class="project-image icon">
 
                     <div class="job-description">
                         <p>
@@ -397,7 +394,7 @@
                 <div class="job-header">Kilimo-AI (LLM-Assisted Smart Irrigation)</div>
                 <br>
                 <div class="project-body">
-                    <img src="assets/kilimo_AI.JPG" alt="Kilimo-AI Project" class="project-image">
+                    <img src="assets/kilimo_AI.JPG" alt="Kilimo-AI Project" class="project-image icon">
 
                     <div class="job-description">
                         <p>
@@ -430,44 +427,6 @@
 
     </div>
 
-    <!-- Email Window -->
-    <div class="secondary-window" id="email-window" style="left: 150px; top: 80px; width: 600px; height: 500px;">
-        <div class="title-bar">
-            <div class="title-bar-text">
-                <span>
-                    <img src="assets/email.png" class="menu-icon-img" alt="Email">
-                    Email Me
-                </span>
-            </div>
-            <div class="title-bar-controls">
-                <button onclick="minimizeWindow('email-window')">_</button>
-                <button onclick="closeWindow('email-window')">×</button>
-            </div>
-        </div>
-        <div class="window-content">
-            <h2 style="color: #0054e3; margin-bottom: 20px;">Get in Touch</h2>
-            <div class="email-form">
-                <div class="form-group">
-                    <label>Your Name:</label>
-                    <input type="text" id="sender-name" placeholder="John Doe">
-                </div>
-                <div class="form-group">
-                    <label>Your Email:</label>
-                    <input type="email" id="sender-email" placeholder="john@example.com">
-                </div>
-                <div class="form-group">
-                    <label>Subject:</label>
-                    <input type="text" id="email-subject" placeholder="Project Inquiry">
-                </div>
-                <div class="form-group">
-                    <label>Message:</label>
-                    <textarea id="email-message" placeholder="Your message here..."></textarea>
-                </div>
-                <button class="btn-primary" onclick="sendEmail()">Send Email</button>
-            </div>
-            
-        </div>
-    </div>
 
     <!-- Gallery Window -->
     <div class="secondary-window" id="gallery-window" style="left: 120px; top: 70px; width: 750px; height: 550px;">
@@ -574,10 +533,6 @@
                 <span>Projects</span>
             </div>
 
-            <div class="start-menu-item" onclick="openWindow('email-window')">
-                <img src="assets/email.png" class="menu-icon-img" alt="Email">
-                <span>Email Me</span>
-            </div>
 
             <div class="start-menu-item" onclick="openWindow('gallery-window')">
                 <img src="assets/gallery.png" class="menu-icon-img" alt="Gallery">
@@ -599,7 +554,6 @@
     <script src="js/window-manager.js"></script>
     <script src="js/taskbar.js"></script>
     <script src="js/desktop.js"></script>
-    <script src="js/email.js"></script>
     <script src="js/clock.js"></script>
 
     
