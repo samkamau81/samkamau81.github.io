@@ -65,3 +65,20 @@
     background: #0b51a5;
     outline: 1px dotted white;
 }
+.job-item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+.school-logo {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+    flex-shrink: 0;
+    margin-top: 2px;
+    border-radius: 4px;
+}
+.job-content {
+    flex: 1;
+}
