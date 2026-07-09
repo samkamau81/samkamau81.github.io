@@ -66,11 +66,14 @@
     outline: 1px dotted white;
 }
 .job-item {
+    padding: 0.75rem;
+    margin: 0.6rem 0;
+    border-left-width: 0.25rem;
     display: flex;
     gap: 14px;
     align-items: flex-start;
-    margin-bottom: 20px;
 }
+
 .school-logo {
     width: 44px;
     height: 44px;
@@ -79,6 +82,42 @@
     margin-top: 2px;
     border-radius: 4px;
 }
+
 .job-content {
     flex: 1;
+}
+
+.project-item {
+    padding: 0.75rem;
+    margin: 0.6rem 0;
+    border-left-width: 0.25rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-item .job-header {
+    width: 100%;
+    margin-bottom: 0.5rem;
+    order: 1;
+}
+
+.project-body {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    width: 100%;
+    order: 2;
+}
+
+.project-image.icon {
+    width: 4.5vw;
+    max-width: 80px;
+    min-width: 60px;
+    height: auto;
+    object-fit: contain;
+    border: 2px solid;
+    border-color: #ffffff #808080 #808080 #ffffff;
+    background: #d4d0c8;
+    padding: 0.3rem;
+    flex-shrink: 0;
 }
