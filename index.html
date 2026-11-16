@@ -261,32 +261,12 @@
                 <div class="project-body">
                     <img src="assets/MoEgovt_seal.jpg" alt="Golden Record Project" class="project-image icon">
                     <div class="job-description">
-                        <p>
-                            <strong>Solution:</strong><br>
-                            Designed an AI-powered Golden Record system to resolve duplicate and inconsistent learner and
-                            school records in NEMIS, enabling a single trusted source of truth for education planning,
-                            funding, and policy decisions.
-                        </p>
-            
-                        <p>
-                            <strong>Engineering Work:</strong><br>
-                            Built a data ingestion and normalization pipeline integrating learner, school, attendance,
-                            and bursary records. Implemented rule-based entity resolution as a baseline, followed by AI
-                            similarity scoring and human-in-the-loop validation workflows. Designed flagging mechanisms
-                            for under-reporting, over-reporting, and data quality gaps, with audit trails for governance
-                            and transparency.
-                        </p>
-            
-                        <p>
-                            <strong>Tech Stack:</strong><br>
-                            Python, Entity Resolution, Fuzzy Matching, Data Pipelines, Human-in-the-Loop Systems,
-                            Synthetic Data Generation, Analytics Dashboards
-                        </p>
-            
-                        <p>
-                            <strong>EdTech Hub Project:</strong>
-                            <a href="https://edtechhub.org/case-study/the-engineer-who-started-with-the-data/" target="_blank">NDIS</a>
-                        </p>
+                        <p><strong>Purpose:</strong><br>The National Data Integrity System (NDIS) prototype helps Kenya’s Ministry of Education find duplicate and inconsistent learner records, so officials can make better-informed education and funding decisions.</p>
+                        <p><strong>My role:</strong><br>AI/software engineer and Kenya prototype lead. I worked with Ministry staff through discovery, experimentation, two-week build sprints, and review sessions, turning data-quality needs into a testable matching and reporting workflow.</p>
+                        <p><strong>Matching approach:</strong><br>Compared records with phonetic name matching and weighted field-level similarity. Ministry data officers helped set which fields mattered most; the system flags candidate matches while officers make the final merge-or-keep decision. This human review step keeps the system from treating uncertain matches as fact.</p>
+                        <p><strong>Data and outputs:</strong><br>Because access to production records was unavailable during the challenge, we co-developed realistic synthetic data with Ministry staff. Cleaned records feed plain-language executive summaries for officials. The case study describes the prototype as substantially faster than manual work, but does not publish a numerical benchmark or evidence of a production rollout.</p>
+                        <p><strong>Technical focus:</strong> Record linkage, phonetic matching, classical machine learning, synthetic data, human-in-the-loop validation, and language-model-assisted reporting.</p>
+                        <p><strong>Case study:</strong> <a href="https://edtechhub.org/case-study/the-engineer-who-started-with-the-data/" target="_blank" rel="noopener noreferrer">NDIS and the Kenya prototype</a></p>
                     </div>
                 </div>
             </div>
@@ -298,28 +278,11 @@
                     <img src="assets/Fin_GPT.jpg" alt="FinGPT Project" class="project-image icon">
 
                     <div class="job-description">
-                        <p>
-                            <strong>Solution:</strong><br>
-                            Implemented a backend service for a domain-specific financial LLM, providing structured,
-                            reliable real-time inference with strong schema guarantees and backward-compatible APIs.
-                        </p>
-
-                        <p>
-                            <strong>Engineering Work:</strong><br>
-                            Designed FastAPI services with well-typed Pydantic models, implemented input validation,
-                            rate management, and caching, and integrated financial text-processing pipelines with
-                            maintainable REST endpoints.
-                        </p>
-
-                        <p>
-                            <strong>Tech Stack:</strong><br>
-                            FastAPI, Pydantic, Python, REST API Design, Async I/O, Financial Text Processing
-                        </p>
-
-                        <p>
-                            <strong>GitHub:</strong>
-                            <a href="https://github.com/samkamau81/FinGPT_" target="_blank">Fin GPT</a>
-                        </p>
+                        <p><strong>Overview:</strong><br>A financial language-model project paired with MoneyMentor, a user-facing finance assistant for conversational questions and financial report generation.</p>
+                        <p><strong>Engineering:</strong><br>Built a FastAPI service around financial text-processing workflows, using typed Pydantic request and response models to validate inputs and keep API contracts predictable. Added rate management and caching around inference, and exposed the functionality through REST endpoints. The repository describes a Streamlit interface that combines LangChain, Weaviate, and FastAPI for the MoneyMentor experience.</p>
+                        <p><strong>Use cases:</strong><br>The request path validates structured inputs, applies rate management and caching around inference, processes financial text, and returns responses through REST endpoints. The assistant supports conversational questions about financial content and can generate longer-form financial reports, giving users both an interactive Q&A flow and a report-writing workflow.</p>
+                        <p><strong>Technologies:</strong> Python, FastAPI, Pydantic, REST, asynchronous I/O, Streamlit, LangChain, and Weaviate.</p>
+                        <p><strong>Demo and source:</strong> <a href="https://moneymentor.streamlit.app/" target="_blank" rel="noopener noreferrer">MoneyMentor demo</a> · <a href="https://github.com/samkamau81/FinGPT_" target="_blank" rel="noopener noreferrer">GitHub repository</a>. The project materials do not publish latency or accuracy benchmarks.</p>
                     </div>
                 </div>
             </div>
@@ -332,28 +295,11 @@
                     <img src="assets/delta_robot.jpg" alt="Delta Laser Robot" class="project-image icon">
 
                     <div class="job-description">
-                        <p>
-                            <strong>Solution:</strong><br>
-                            Built a low-latency computer vision inference service for autonomous weed detection,
-                            enabling precise robotic laser control in field conditions.
-                        </p>
-
-                        <p>
-                            <strong>Engineering Work:</strong><br>
-                            Optimized YOLOv11 inference on Raspberry Pi 4 using INT8 quantization and I/O pipeline
-                            tuning. Designed structured interfaces exposing detections to motion controllers and
-                            debugged data flow between the CV service, G-code generator, and microcontroller firmware.
-                        </p>
-
-                        <p>
-                            <strong>Tech Stack:</strong><br>
-                            Python, YOLOv11, TensorFlow, OpenCV, Raspberry Pi, Microcontroller Integration
-                        </p>
-
-                        <p>
-                            <strong>GitHub:</strong>
-                            <a href="https://github.com/samkamau81/DESIGN-AND-FABRICATION-OF-A-DELTA-ROBOT-FOR-PRECISE-WEED-REMOVAL-USING-LASER-TECHNOLOGY" target="_blank">Delta Robot</a>
-                        </p>
+                        <p><strong>Overview:</strong><br>An edge-computer-vision and robotics project for locating weeds and translating detections into targeted laser-weeding actions. The system is designed around a Delta robot, with inference running on a Raspberry Pi 4 rather than requiring a desktop GPU.</p>
+                        <p><strong>Engineering:</strong><br>Optimized a YOLOv11 detection path for edge execution, including INT8 quantization and inference I/O tuning. Connected the vision output to a robotics control path through structured detections, G-code generation, and microcontroller firmware. This joins perception, motion commands, and actuation in a compact precision-agriculture system. The project README also describes field testing across different lighting levels and weed densities; those test conditions and results are reported by the project authors.</p>
+                        <p><strong>Reported result:</strong><br>The linked project repository reports 98.5% mAP@0.5 at 23 FPS on Raspberry Pi 4. These are project-reported results; the portfolio does not present them as an independently reproduced benchmark.</p>
+                        <p><strong>Technical focus:</strong> Python, YOLOv11, OpenCV, Raspberry Pi, INT8 inference, G-code, microcontroller integration, and Delta-robot control.</p>
+                        <p><strong>Research and source:</strong> <a href="https://github.com/samkamau81/DESIGN-AND-FABRICATION-OF-A-DELTA-ROBOT-FOR-PRECISE-WEED-REMOVAL-USING-LASER-TECHNOLOGY" target="_blank" rel="noopener noreferrer">Project repository and technical write-up</a></p>
                     </div>
                 </div>
             </div>
@@ -366,28 +312,11 @@
                     <img src="assets/embedmind_logo.jpg" alt="EmbedMind Studio" class="project-image icon">
 
                     <div class="job-description">
-                        <p>
-                            <strong>Solution:</strong><br>
-                            Developed a lightweight platform for assembling, simulating, and deploying LLM-powered
-                            agents on embedded and edge devices.
-                        </p>
-
-                        <p>
-                            <strong>Engineering Work:</strong><br>
-                            Built a Python backend orchestrating agent logic and device communication over serial/WiFi,
-                            integrated Gemini and OpenAI APIs, containerized development environments with Docker,
-                            and implemented CI/CD workflows for reproducible builds and deployments.
-                        </p>
-
-                        <p>
-                            <strong>Tech Stack:</strong><br>
-                            Python, C++, Docker, CI/CD Workflows, Gemini/OpenAI APIs, Embedded Networking (ESP8266, Raspberry Pi)
-                        </p>
-
-                        <p>
-                            <strong>GitHub:</strong>
-                            <a href="https://github.com/samkamau81/EmbedMind-Studio" target="_blank">EmbedMind Studio</a>
-                        </p>
+                        <p><strong>Overview:</strong><br>A browser-based IDE concept for building and testing AI agents intended for embedded and edge devices. The Streamlit interface brings agent development, simulation, debugging, and device-oriented workflows into one place. The documented workflow is Python-first: start from a template or bring agent code, inspect behavior with visual feedback, then target an embedded device.</p>
+                        <p><strong>Engineering:</strong><br>Structured the application around a Python web interface, supporting model and device utilities, and firmware examples for ESP-class hardware. The repository includes an ESP AI agent sketch and a separate device test sketch, illustrating the boundary between an agent workflow on the host and code running on a microcontroller.</p>
+                        <p><strong>Developer workflow:</strong><br>The project aims to let developers prototype behavior in the browser before testing it on constrained hardware, with extension points for additional device integrations and agent components. A repository demo video shows the project interface and workflow.</p>
+                        <p><strong>Technologies:</strong> Python, Streamlit, C++/Arduino firmware, embedded-device integration, and AI-agent tooling. The repository does not document measured deployment performance.</p>
+                        <p><strong>Demo and source:</strong> <a href="https://www.youtube.com/watch?v=fT-3MP9LSW8" target="_blank" rel="noopener noreferrer">Project demo video</a> · <a href="https://github.com/samkamau81/EmbedMind-Studio" target="_blank" rel="noopener noreferrer">GitHub repository</a></p>
                     </div>
                 </div>
             </div>
@@ -400,28 +329,11 @@
                     <img src="assets/mental_muse.JPG" alt="MentalMuse Project" class="project-image icon">
 
                     <div class="job-description">
-                        <p>
-                            <strong>Solution:</strong><br>
-                            Created a secure Natural Language Processing analysis pipeline for mental-health text, focused on stable,
-                            explainable processing and safe data handling.
-                        </p>
-
-                        <p>
-                            <strong>Engineering Work:</strong><br>
-                            Implemented scalable Python services and orchestrated batch and streaming workloads
-                            using Snowpark. Built secure API integrations routing users to support services and added
-                            lightweight explainability around NLP outputs.
-                        </p>
-
-                        <p>
-                            <strong>Tech Stack:</strong><br>
-                            Python, NLP Pipelines, Snowpark (Snowflake), Secure API Integration, Data Validation
-                        </p>
-
-                        <p>
-                            <strong>GitHub:</strong>
-                            <a href="https://github.com/samkamau81/Streamlit-with-Snowflake" target="_blank">Mental Muse</a>
-                        </p>
+                        <p><strong>Overview:</strong><br>A questionnaire-based mental-wellness prototype that combines multilingual sentiment analysis with a directory of local support resources. It is an exploratory self-assessment experience, not a clinical diagnosis.</p>
+                        <p><strong>Analysis flow:</strong><br>Users respond to weighted questions; a multilingual BERT sentiment model scores each response, and the app combines the scores into an estimated stress-level percentage. It then queries Snowflake for relevant psychologist or psychiatrist information, including location and available guidance, based on the user’s county. The repository describes database tables for provider offices, reviews, and advice, so the result connects the questionnaire output to local support information rather than ending at a sentiment score.</p>
+                        <p><strong>Engineering:</strong><br>Built the application in Streamlit, connected Python workflows to Snowflake through Snowpark, and integrated the Transformers/PyTorch sentiment model with the resource lookup. This connects free-text analysis, weighted questionnaire logic, and location-aware database queries in a single app.</p>
+                        <p><strong>Technologies:</strong> Python, Streamlit, Snowflake/Snowpark, Transformers, PyTorch, and multilingual BERT sentiment analysis.</p>
+                        <p><strong>Demo and source:</strong> <a href="https://mentalmuse.streamlit.app/" target="_blank" rel="noopener noreferrer">MentalMuse demo</a> · <a href="https://github.com/samkamau81/Streamlit-with-Snowflake" target="_blank" rel="noopener noreferrer">GitHub repository</a>. The repository does not document clinical validation or model-accuracy benchmarks.</p>
                     </div>
                 </div>
             </div>
@@ -434,28 +346,11 @@
                     <img src="assets/kilimo_AI.JPG" alt="Kilimo-AI Project" class="project-image icon">
 
                     <div class="job-description">
-                        <p>
-                            <strong>Solution:</strong><br>
-                            Built an LLM-assisted irrigation control system that translates natural-language input
-                            into reliable device-level commands for low-power IoT hardware.
-                        </p>
-
-                        <p>
-                            <strong>Engineering Work:</strong><br>
-                            Designed Python–C++ modules for prompt processing and decision logic, integrated cloud
-                            REST APIs for device state updates and alerts, and optimized system behavior for
-                            low-power rural deployment environments.
-                        </p>
-
-                        <p>
-                            <strong>Tech Stack:</strong><br>
-                            Python, C++, LLM Prompt Engineering, IoT Controllers, REST APIs, Cloud Integration
-                        </p>
-
-                        <p>
-                            <strong>GitHub:</strong>
-                            <a href="https://github.com/samkamau81/Kilimo_AI" target="_blank">Kilimo AI</a>
-                        </p>
+                        <p><strong>Overview:</strong><br>A generative-AI agriculture assistant designed to make practical farming guidance more accessible to rural farmers. The app accepts natural-language questions and returns agriculture-focused responses, with Kiswahili translation for users who prefer it.</p>
+                        <p><strong>Product workflow:</strong><br>The Streamlit interface brings question answering, language support, and an IoT integration concept together. The repository describes extending the app to monitor and control smart-irrigation systems, connecting advisory interactions with farm-device workflows.</p>
+                        <p><strong>Engineering focus:</strong><br>Designed the application as a conversational interface over agriculture-oriented language-model capabilities, with a path to connect software guidance to irrigation hardware. The codebase includes separate KilimoAI, embedded-software, and financial-analyzer app modules. The README does not identify a specific language model, connected device platform, or field-trial result, so model and hardware performance remain unreported.</p>
+                        <p><strong>Technologies:</strong> Python, Streamlit, LangChain, large-language-model integration, Kiswahili translation, and IoT/smart-irrigation integration.</p>
+                        <p><strong>Source:</strong> <a href="https://github.com/samkamau81/Kilimo_AI" target="_blank" rel="noopener noreferrer">GitHub repository</a></p>
                     </div>
                 </div>
             </div>
