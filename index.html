@@ -221,9 +221,10 @@
                 <p>Portfolio: samkamau81.github.io | kamausamwelwaweru@gmail.com | github.com/samkamau81</p>
             </header>
             <div class="section-title">ENGINEERING PROJECTS</div>
+            <p class="projects-date-note">Project years use the first GitHub commit where a public repository is available; Golden Record shows its documented work period.</p>
             <!-- Peak Power details verified against the supplied local project folder. -->
             <article class="project-item">
-                <div class="job-header">Peak Power — Data Center Planning &amp; Operations Simulator</div>
+                <div class="job-header"><span class="project-year">2026</span> · Peak Power — Data Center Planning &amp; Operations Simulator</div>
                 <div class="project-body">
                     <div class="project-mark" aria-hidden="true">⚡</div>
                     <div class="job-description">
@@ -239,7 +240,7 @@
             </article>
             <!-- Viam robotics project details verified against the supplied local repository. -->
             <article class="project-item">
-                <div class="job-header">Spot it, sort it — Viam Robotic Vision Language Action Model for Defect Detection.</div>
+                <div class="job-header"><span class="project-year">2026</span> · Spot it, sort it — Viam Robotic Vision Language Action Model for Defect Detection.</div>
 
                 <div class="project-body">
                     <div class="project-mark" aria-hidden="true">🤖</div>
@@ -257,7 +258,7 @@
             </article>
             <!-- Golden Record -->
             <div class="project-item">
-                <div class="job-header">Golden Record (National Data Integrity System)</div>
+                <div class="job-header"><span class="project-year">2025–26</span> · Golden Record (National Data Integrity System)</div>
                 <div class="project-body">
                     <img src="assets/MoEgovt_seal.jpg" alt="Golden Record Project" class="project-image icon">
                     <div class="job-description">
@@ -270,43 +271,9 @@
                     </div>
                 </div>
             </div>
-            <!-- FinGPT -->
-            <div class="project-item">
-                <div class="job-header">FinGPT (Financial Language Model System)</div>
-                <br>
-                <div class="project-body">
-                    <img src="assets/Fin_GPT.jpg" alt="FinGPT Project" class="project-image icon">
-
-                    <div class="job-description">
-                        <p><strong>Overview:</strong><br>A financial language-model project paired with MoneyMentor, a user-facing finance assistant for conversational questions and financial report generation.</p>
-                        <p><strong>Engineering:</strong><br>Built a FastAPI service around financial text-processing workflows, using typed Pydantic request and response models to validate inputs and keep API contracts predictable. Added rate management and caching around inference, and exposed the functionality through REST endpoints. The repository describes a Streamlit interface that combines LangChain, Weaviate, and FastAPI for the MoneyMentor experience.</p>
-                        <p><strong>Use cases:</strong><br>The request path validates structured inputs, applies rate management and caching around inference, processes financial text, and returns responses through REST endpoints. The assistant supports conversational questions about financial content and can generate longer-form financial reports, giving users both an interactive Q&A flow and a report-writing workflow.</p>
-                        <p><strong>Technologies:</strong> Python, FastAPI, Pydantic, REST, asynchronous I/O, Streamlit, LangChain, and Weaviate.</p>
-                        <p><strong>Demo and source:</strong> <a href="https://moneymentor.streamlit.app/" target="_blank" rel="noopener noreferrer">MoneyMentor demo</a> · <a href="https://github.com/samkamau81/FinGPT_" target="_blank" rel="noopener noreferrer">GitHub repository</a>. The project materials do not publish latency or accuracy benchmarks.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Delta Laser Weeding Robot -->
-            <div class="project-item">
-                <div class="job-header">Delta Laser Weeding Robot (Computer Vision & Robotics Backend)</div>
-                <br>
-                <div class="project-body">
-                    <img src="assets/delta_robot.jpg" alt="Delta Laser Robot" class="project-image icon">
-
-                    <div class="job-description">
-                        <p><strong>Overview:</strong><br>An edge-computer-vision and robotics project for locating weeds and translating detections into targeted laser-weeding actions. The system is designed around a Delta robot, with inference running on a Raspberry Pi 4 rather than requiring a desktop GPU.</p>
-                        <p><strong>Engineering:</strong><br>Optimized a YOLOv11 detection path for edge execution, including INT8 quantization and inference I/O tuning. Connected the vision output to a robotics control path through structured detections, G-code generation, and microcontroller firmware. This joins perception, motion commands, and actuation in a compact precision-agriculture system. The project README also describes field testing across different lighting levels and weed densities; those test conditions and results are reported by the project authors.</p>
-                        <p><strong>Reported result:</strong><br>The linked project repository reports 98.5% mAP@0.5 at 23 FPS on Raspberry Pi 4. These are project-reported results; the portfolio does not present them as an independently reproduced benchmark.</p>
-                        <p><strong>Technical focus:</strong> Python, YOLOv11, OpenCV, Raspberry Pi, INT8 inference, G-code, microcontroller integration, and Delta-robot control.</p>
-                        <p><strong>Research and source:</strong> <a href="https://github.com/samkamau81/DESIGN-AND-FABRICATION-OF-A-DELTA-ROBOT-FOR-PRECISE-WEED-REMOVAL-USING-LASER-TECHNOLOGY" target="_blank" rel="noopener noreferrer">Project repository and technical write-up</a></p>
-                    </div>
-                </div>
-            </div>
-
             <!-- EmbedMind Studio -->
             <div class="project-item">
-                <div class="job-header">EmbedMind Studio (LLM-Powered Embedded Agents)</div>
+                <div class="job-header"><span class="project-year">2025</span> · EmbedMind Studio (LLM-Powered Embedded Agents)</div>
                 <br>
                 <div class="project-body">
                     <img src="assets/embedmind_logo.jpg" alt="EmbedMind Studio" class="project-image icon">
@@ -320,27 +287,25 @@
                     </div>
                 </div>
             </div>
-
-            <!-- MentalMuse -->
+            <!-- Delta Laser Weeding Robot -->
             <div class="project-item">
-                <div class="job-header">MentalMuse (NLP Mental Health Analysis)</div>
+                <div class="job-header"><span class="project-year">2024</span> · Delta Laser Weeding Robot (Computer Vision & Robotics Backend)</div>
                 <br>
                 <div class="project-body">
-                    <img src="assets/mental_muse.JPG" alt="MentalMuse Project" class="project-image icon">
+                    <img src="assets/delta_robot.jpg" alt="Delta Laser Robot" class="project-image icon">
 
                     <div class="job-description">
-                        <p><strong>Overview:</strong><br>A questionnaire-based mental-wellness prototype that combines multilingual sentiment analysis with a directory of local support resources. It is an exploratory self-assessment experience, not a clinical diagnosis.</p>
-                        <p><strong>Analysis flow:</strong><br>Users respond to weighted questions; a multilingual BERT sentiment model scores each response, and the app combines the scores into an estimated stress-level percentage. It then queries Snowflake for relevant psychologist or psychiatrist information, including location and available guidance, based on the user’s county. The repository describes database tables for provider offices, reviews, and advice, so the result connects the questionnaire output to local support information rather than ending at a sentiment score.</p>
-                        <p><strong>Engineering:</strong><br>Built the application in Streamlit, connected Python workflows to Snowflake through Snowpark, and integrated the Transformers/PyTorch sentiment model with the resource lookup. This connects free-text analysis, weighted questionnaire logic, and location-aware database queries in a single app.</p>
-                        <p><strong>Technologies:</strong> Python, Streamlit, Snowflake/Snowpark, Transformers, PyTorch, and multilingual BERT sentiment analysis.</p>
-                        <p><strong>Demo and source:</strong> <a href="https://mentalmuse.streamlit.app/" target="_blank" rel="noopener noreferrer">MentalMuse demo</a> · <a href="https://github.com/samkamau81/Streamlit-with-Snowflake" target="_blank" rel="noopener noreferrer">GitHub repository</a>. The repository does not document clinical validation or model-accuracy benchmarks.</p>
+                        <p><strong>Overview:</strong><br>An edge-computer-vision and robotics project for locating weeds and translating detections into targeted laser-weeding actions. The system is designed around a Delta robot, with inference running on a Raspberry Pi 4 rather than requiring a desktop GPU.</p>
+                        <p><strong>Engineering:</strong><br>Optimized a YOLOv11 detection path for edge execution, including INT8 quantization and inference I/O tuning. Connected the vision output to a robotics control path through structured detections, G-code generation, and microcontroller firmware. This joins perception, motion commands, and actuation in a compact precision-agriculture system. The project README also describes field testing across different lighting levels and weed densities; those test conditions and results are reported by the project authors.</p>
+                        <p><strong>Reported result:</strong><br>The linked project repository reports 98.5% mAP@0.5 at 23 FPS on Raspberry Pi 4. These are project-reported results; the portfolio does not present them as an independently reproduced benchmark.</p>
+                        <p><strong>Technical focus:</strong> Python, YOLOv11, OpenCV, Raspberry Pi, INT8 inference, G-code, microcontroller integration, and Delta-robot control.</p>
+                        <p><strong>Research and source:</strong> <a href="https://github.com/samkamau81/DESIGN-AND-FABRICATION-OF-A-DELTA-ROBOT-FOR-PRECISE-WEED-REMOVAL-USING-LASER-TECHNOLOGY" target="_blank" rel="noopener noreferrer">Project repository and technical write-up</a></p>
                     </div>
                 </div>
             </div>
-
             <!-- Kilimo-AI -->
             <div class="project-item">
-                <div class="job-header">Kilimo-AI (LLM-Assisted Smart Irrigation)</div>
+                <div class="job-header"><span class="project-year">2024</span> · Kilimo-AI (LLM-Assisted Smart Irrigation)</div>
                 <br>
                 <div class="project-body">
                     <img src="assets/kilimo_AI.JPG" alt="Kilimo-AI Project" class="project-image icon">
@@ -351,6 +316,38 @@
                         <p><strong>Engineering focus:</strong><br>Designed the application as a conversational interface over agriculture-oriented language-model capabilities, with a path to connect software guidance to irrigation hardware. The codebase includes separate KilimoAI, embedded-software, and financial-analyzer app modules. The README does not identify a specific language model, connected device platform, or field-trial result, so model and hardware performance remain unreported.</p>
                         <p><strong>Technologies:</strong> Python, Streamlit, LangChain, large-language-model integration, Kiswahili translation, and IoT/smart-irrigation integration.</p>
                         <p><strong>Source:</strong> <a href="https://github.com/samkamau81/Kilimo_AI" target="_blank" rel="noopener noreferrer">GitHub repository</a></p>
+                    </div>
+                </div>
+            </div>
+            <!-- FinGPT -->
+            <div class="project-item">
+                <div class="job-header"><span class="project-year">2023</span> · FinGPT (Financial Language Model System)</div>
+                <br>
+                <div class="project-body">
+                    <img src="assets/Fin_GPT.jpg" alt="FinGPT Project" class="project-image icon">
+
+                    <div class="job-description">
+                        <p><strong>Overview:</strong><br>A financial language-model project paired with MoneyMentor, a user-facing finance assistant for conversational questions and financial report generation.</p>
+                        <p><strong>Engineering:</strong><br>Built a FastAPI service around financial text-processing workflows, using typed Pydantic request and response models to validate inputs and keep API contracts predictable. Added rate management and caching around inference, and exposed the functionality through REST endpoints. The repository describes a Streamlit interface that combines LangChain, Weaviate, and FastAPI for the MoneyMentor experience.</p>
+                        <p><strong>Use cases:</strong><br>The request path validates structured inputs, applies rate management and caching around inference, processes financial text, and returns responses through REST endpoints. The assistant supports conversational questions about financial content and can generate longer-form financial reports, giving users both an interactive Q&A flow and a report-writing workflow.</p>
+                        <p><strong>Technologies:</strong> Python, FastAPI, Pydantic, REST, asynchronous I/O, Streamlit, LangChain, and Weaviate.</p>
+                        <p><strong>Demo and source:</strong> <a href="https://moneymentor.streamlit.app/" target="_blank" rel="noopener noreferrer">MoneyMentor demo</a> · <a href="https://github.com/samkamau81/FinGPT_" target="_blank" rel="noopener noreferrer">GitHub repository</a>. The project materials do not publish latency or accuracy benchmarks.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- MentalMuse -->
+            <div class="project-item">
+                <div class="job-header"><span class="project-year">2023</span> · MentalMuse (NLP Mental Health Analysis)</div>
+                <br>
+                <div class="project-body">
+                    <img src="assets/mental_muse.JPG" alt="MentalMuse Project" class="project-image icon">
+
+                    <div class="job-description">
+                        <p><strong>Overview:</strong><br>A questionnaire-based mental-wellness prototype that combines multilingual sentiment analysis with a directory of local support resources. It is an exploratory self-assessment experience, not a clinical diagnosis.</p>
+                        <p><strong>Analysis flow:</strong><br>Users respond to weighted questions; a multilingual BERT sentiment model scores each response, and the app combines the scores into an estimated stress-level percentage. It then queries Snowflake for relevant psychologist or psychiatrist information, including location and available guidance, based on the user’s county. The repository describes database tables for provider offices, reviews, and advice, so the result connects the questionnaire output to local support information rather than ending at a sentiment score.</p>
+                        <p><strong>Engineering:</strong><br>Built the application in Streamlit, connected Python workflows to Snowflake through Snowpark, and integrated the Transformers/PyTorch sentiment model with the resource lookup. This connects free-text analysis, weighted questionnaire logic, and location-aware database queries in a single app.</p>
+                        <p><strong>Technologies:</strong> Python, Streamlit, Snowflake/Snowpark, Transformers, PyTorch, and multilingual BERT sentiment analysis.</p>
+                        <p><strong>Demo and source:</strong> <a href="https://mentalmuse.streamlit.app/" target="_blank" rel="noopener noreferrer">MentalMuse demo</a> · <a href="https://github.com/samkamau81/Streamlit-with-Snowflake" target="_blank" rel="noopener noreferrer">GitHub repository</a>. The repository does not document clinical validation or model-accuracy benchmarks.</p>
                     </div>
                 </div>
             </div>
