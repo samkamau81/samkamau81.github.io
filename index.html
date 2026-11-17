@@ -225,14 +225,14 @@
             <article class="project-item">
                 <div class="job-header"><span class="project-year">2026</span> · Peak Power — Data Center Planning &amp; Operations Simulator</div>
                 <div class="project-body">
-                    <div class="project-mark" aria-hidden="true">⚡</div>
+                    <img src="assets/peak_power.JPG" alt="Peak Power logo" class="project-image icon">
                     <div class="job-description">
                         <p><strong>Overview:</strong><br>A browser-based planning tool for evaluating a 75 MW data center campus before capital is committed. It brings site screening, project timelines, power and finance planning, plant performance, and hour-by-hour operations into one interactive prototype.</p>
                         <p><strong>What it does:</strong><br>Compares project scenarios and screens 3,142 U.S. counties across nine dimensions: location, energy, policy, fiber, land, grid reliability, water, natural hazard, and time to power. Energy dispatch modeling is limited to ERCOT (Texas); counties elsewhere receive rule-based screening rather than an hourly energy simulation.</p>
                         <p><strong>Engineering:</strong><br>Built as a static application with plain HTML, CSS, and JavaScript, with no framework or build step. Its deterministic dispatch and accounting engine models 87,600 hourly steps across ten years, using an 8,760-hour reference year repeated annually. It compares 384 pre-simulated power plans and re-simulates plans when selected assumptions change. The interface includes portfolio/timeline views, a county finder, finance and energy controls, plant performance, and live operations.</p>
                         <p><strong>Data and methods:</strong><br>Uses a symposium packet for hourly energy inputs, alongside public data including U.S. Census county boundaries, WRI Aqueduct water stress, FEMA hazard data, LBNL interconnection queue data, CAIDA network-facility locations, EIA power-plant data, and OpenStreetMap-derived data center locations. Grades and business inputs are explicitly treated as screening assumptions.</p>
                         <p><strong>Recognition:</strong> Winning project at Columbia University's Grid Tech 2026 Symposium (as stated in the supplied project brief).</p>
-                        <p><strong>Results and limits:</strong><br>The prototype produces comparative scenario estimates; its documentation says these are not quotes or guarantees and notes that the model is not calibrated against real outcomes. Individual team responsibilities are not documented in the accessible project files.</p>
+                        <p><strong>Results and limits:</strong><br>The prototype produces comparative scenario estimates; its documentation says these are not quotes or guarantees and notes that the model is not calibrated against real outcomes.</p>
                         <p><strong>Source:</strong> <a href="https://github.com/samkamau81/GRID_TECH_Hackathon" target="_blank" rel="noopener noreferrer">GitHub repository</a></p>
                     </div>
                 </div>
@@ -242,7 +242,7 @@
                 <div class="job-header"><span class="project-year">2026</span> · Spot it, sort it — Viam Robotic Vision Language Action Model for Defect Detection.</div>
 
                 <div class="project-body">
-                    <div class="project-mark" aria-hidden="true">🤖</div>
+                    <img src="assets/viam.JPG" alt="Viam logo" class="project-image icon">
                     <div class="job-description">
                         <p><strong>Overview:</strong><br>A defect-inspection and sorting prototype for parts on a plain inspection surface. It combines camera-based part localization, anomaly scoring, per-item decisions and logging, with a Viam-connected robot workflow.</p>
                         <p><strong>Architecture:</strong><br>A wrist-mounted RealSense camera feeds a PatchCore model from Anomalib, compiled with OpenVINO on the Intel NUC. The Viam vision module locates parts against the background, scores anomaly heat over each part relative to the same frame’s surface, and labels it normal, anomalous, or hold. Decisions are logged before the arm workflow; depth and camera geometry support grasp planning.</p>
@@ -250,7 +250,6 @@
                         <p><strong>Reported result:</strong><br>In the documented blind test on seven defective shots, PatchCore caught 6/7 (including three foreign blocks), while supervised YOLO caught 2/7. This is a small, setup-specific test, not a general performance guarantee. The notes also record sensitivity to lighting and background changes.</p>
                         <p><strong>Robot integration status:</strong><br>The Viam modules include per-item logging and a depth-based grasp planner. Handoff notes say real picks were not verified; the later sorter was left in dry-run with motion blocked pending station checks. The repository does not establish a successful autonomous sorting run.</p>
                         <p><strong>Technologies:</strong> Python 3.12, Viam SDK and modules, Anomalib PatchCore, OpenVINO, OpenCV, NumPy, depth-camera geometry, pytest.</p>
-                        <p><strong>Personal contribution:</strong> The accessible documentation describes team implementation but does not identify individual responsibilities; your specific contribution needs confirmation.</p>
                         <p><strong>Source:</strong> <a href="https://github.com/namitkapoor/spot-it-sort-it" target="_blank" rel="noopener noreferrer">GitHub repository</a></p>
                     </div>
                 </div>
